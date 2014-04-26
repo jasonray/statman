@@ -14,5 +14,8 @@
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/jasonray/statman/issues"
+  },
+  "dependencies": {
+    "nodeunit": "~0.8.6"
   }
 }
