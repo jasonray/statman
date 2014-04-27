@@ -67,6 +67,14 @@ exports.allowCustomValueFunction = function(test) {
 	};
 
 	var gauge = new gaugelib.Gauge('metric-name', customValueFunction);
-	test.equal(5, gauge.value() );
+	test.equal(5, gauge.value());
+	test.done();
+};
+
+exports.disallowNonFunctionForCustomValueFunction = function(test) {
+	test.throws(function() {
+		var gauge = new gaugelib.Gauge('metric-name', 5);
+	});
+
 	test.done();
 };
