@@ -30,3 +30,10 @@ exports.decrement = function (test) {
 	test.equal(-1, gauge.value() );
 	test.done();
 };
+
+exports.set = function (test) {
+	var gauge = new gaugelib.Gauge('metric-name');
+	gauge.set(5);
+	test.equal(5, gauge.value() );
+	test.done();
+};
