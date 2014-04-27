@@ -1,9 +1,10 @@
 statman
 =======
+Package to assist with collection of metrics
 
-middleware for tracking stats
-
-
+Installation
+============
+TBD
 
 
 
@@ -58,3 +59,8 @@ function dequeue() {
 
 To get gauge value:
 metrics.gauges(metricName).value();
+
+
+Development
+===========
+run the unit tests: `./runtest.sh`
