@@ -14,10 +14,11 @@ Based upon [codehale metric package](http://metrics.codahale.com/getting-started
 
 Suppose that we want to create a gauage that measures that size of a queue.  The below indicates how to regsiter this.
 
-Register a gauge
------------------
+Register and using a gauge
+--------------------------
 ### Method 1
-metrics.gauges.register('queueSize');
+var gauge = new Gauge('queueSize');
+metrics.gauges.register(gauge);
 
 function enqueue(message) {
 	data.push(message);
@@ -30,7 +31,8 @@ function dequeue() {
 }
 
 ### Method 2
-var gauge = metrics.gauges.register('queueSize');
+var gauge = new Gauge('queueSize');
+metrics.gauges.register(gauge);
 
 function enqueue(message) {
 	data.push(message);
@@ -43,9 +45,10 @@ function dequeue() {
 }
 
 ### Method 3
-metrics.gauges.register('queueSize', function() {
+var gauge = new Gauge('queueSize', function() {
 	return data.size();
-})
+});
+metrics.gauges.register(gauge);
 
 function enqueue(message) {
 	data.push(message);
