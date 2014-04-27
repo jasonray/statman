@@ -9,7 +9,7 @@ middleware for tracking stats
 
 Gauge
 =====
-Based upon (codehale metric package, http://metrics.codahale.com/getting-started/#gauges), a gauge is an instanteous measurement.
+Based upon [codehale metric package](http://metrics.codahale.com/getting-started/#gauges), a gauge is an instanteous measurement.
 
 Suppose that we want to create a gauage that measures that size of a queue.  The below indicates how to regsiter this.
 
