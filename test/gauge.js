@@ -24,6 +24,14 @@ exports.increment = function(test) {
 	test.done();
 };
 
+exports.incrementByValue = function(test) {
+	var gauge = new gaugelib.Gauge('metric-name');
+	gauge.set(10);
+	gauge.increment(2);
+	test.equal(12, gauge.value());
+	test.done();
+};
+
 exports.decrement = function(test) {
 	var gauge = new gaugelib.Gauge('metric-name');
 	gauge.decrement();
