@@ -15,7 +15,7 @@ Based upon [codehale metric package](http://metrics.codahale.com/getting-started
 Suppose that we want to create a gauage that measures that size of a queue.  The below indicates how to regsiter this.
 
 Register a gauge
------------------------
+-----------------
 ### Method 1
 metrics.gauges.register('queueSize');
 
@@ -57,9 +57,35 @@ function dequeue() {
 	gauge.decrement();
 }
 
-To get gauge value:
-metrics.gauges(metricName).value();
+Increment
+---------
+```
+var gauge = new gaugelib.Gauge('metric-name');
+gauge.increment();  //increment by 1
+gauge.increment(10); //increment by 10
+```
 
+Decrement
+---------
+```
+var gauge = new gaugelib.Gauge('metric-name');
+gauge.decrement();  //decrement by 1
+gauge.decrement(10); //decrement by 10
+```
+
+Set
+---
+```
+var gauge = new gaugelib.Gauge('metric-name');
+gauge.set(5);
+```
+
+Value
+-----
+To get gauge value:
+```
+gague.value();
+```
 
 Development
 ===========
