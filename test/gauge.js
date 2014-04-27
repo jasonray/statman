@@ -78,3 +78,21 @@ exports.disallowNonFunctionForCustomValueFunction = function(test) {
 
 	test.done();
 };
+
+exports.twoGauage = function(test) {
+	var gaugeA = new gaugelib.Gauge('metric-name');
+	gaugeA.set(5);
+	gaugeA.increment();
+	gaugeA.increment();
+	gaugeA.decrement();
+
+	var gaugeB = new gaugelib.Gauge('metric-name');
+	gaugeB.set(10);
+	gaugeB.increment();
+	gaugeB.decrement();
+	gaugeB.decrement();
+
+	test.equal(6, gaugeA.value());
+	test.equal(9, gaugeB.value());
+	test.done();
+};
