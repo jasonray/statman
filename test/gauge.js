@@ -60,3 +60,13 @@ exports.setNotAllowUninitialized = function(test) {
 	var input;
 	testSetWithInvalidInput(test, input);
 };
+
+exports.allowCustomValueFunction = function(test) {
+	var customValueFunction = function() {
+		return 5;
+	};
+
+	var gauge = new gaugelib.Gauge('metric-name', customValueFunction);
+	test.equal(5, gauge.value() );
+	test.done();
+};
