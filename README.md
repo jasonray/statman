@@ -16,7 +16,7 @@ Suppose that we want to create a gauage that measures that size of a queue.  The
 
 Register a gauge
 -----------------------
-Method 1:
+### Method 1
 metrics.gauges.register('queueSize');
 
 function enqueue(message) {
@@ -29,7 +29,7 @@ function dequeue() {
 	metrics.gauges('queueSize').decrement();
 }
 
-Method 2:
+### Method 2
 var gauge = metrics.gauges.register('queueSize');
 
 function enqueue(message) {
@@ -42,7 +42,7 @@ function dequeue() {
 	gauge.decrement();
 }
 
-Method 3:
+### Method 3
 metrics.gauges.register('queueSize', function() {
 	return data.size();
 })
