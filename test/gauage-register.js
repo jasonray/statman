@@ -8,12 +8,3 @@ exports.activelyRegisterGauage = function(test) {
 	test.done();
 };
 
-exports.retrieveGaugeByName = function(test) {
-	// var gauage = registry.guages.register('metric-name');
-	var gauges = registry.gauges();
-	gauges.register('metric-name');
-	var gauge = gauges('metric-name');
-	test.equal('metric-name', gauge.name());
-	test.done();
-};
-
