@@ -7,4 +7,3 @@ exports.activelyRegisterGauage = function(test) {
 	test.equal('metric-name', gauge.name());
 	test.done();
 };
-
