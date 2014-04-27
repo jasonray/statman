@@ -15,3 +15,17 @@ exports.retrieveGauage = function(test) {
 	test.equal('metric-name', gauge.name());
 	test.done();
 };
+
+exports.modifyValueOfGauge = function(test) {
+	var gauge = new gaugelib.Gauge('a');
+	registry.gauges().register(gauge);
+
+	registry.gauges('a').set(5);
+	registry.gauges('a').increment();
+	registry.gauges('a').increment();
+	registry.gauges('a').decrement(3);
+	registry.gauges('a').increment(7);
+
+	test.equal(11, registry.gauges('a').value());
+	test.done();
+};
