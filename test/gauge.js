@@ -5,10 +5,28 @@ exports.hello = function (test) {
 	test.done();
 };
 
-exports.setgauge = function (test) {
-	var mygauge = new gaugelib.gauge();
-	test.equals(0, mygauge.getValue());
-	mygauge.setValue(5);
-	test.equals(5, mygauge.getValue());
+exports.gauagename = function (test) {
+	var gauge = new gaugelib.Gauge('metric-name');
+	test.equal('metric-name', gauge.name() );
+	test.done();
+};
+
+exports.initializesTo0 = function (test) {
+	var gauge = new gaugelib.Gauge('metric-name');
+	test.equal(0, gauge.value() );
+	test.done();
+};
+
+exports.increment = function (test) {
+	var gauge = new gaugelib.Gauge('metric-name');
+	gauge.increment();
+	test.equal(1, gauge.value() );
+	test.done();
+};
+
+exports.decrement = function (test) {
+	var gauge = new gaugelib.Gauge('metric-name');
+	gauge.decrement();
+	test.equal(-1, gauge.value() );
 	test.done();
 };
