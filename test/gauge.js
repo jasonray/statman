@@ -39,6 +39,14 @@ exports.decrement = function(test) {
 	test.done();
 };
 
+exports.decrementByValue = function(test) {
+	var gauge = new gaugelib.Gauge('metric-name');
+	gauge.set(10);
+	gauge.decrement(2);
+	test.equal(8, gauge.value());
+	test.done();
+};
+
 exports.set = function(test) {
 	var gauge = new gaugelib.Gauge('metric-name');
 	gauge.set(5);
