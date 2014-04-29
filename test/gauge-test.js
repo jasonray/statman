@@ -1,4 +1,4 @@
-var metrics = require('../index');
+var metrics = require('../lib/metrics');
 
 exports.hello = function(test) {
 	test.equals(1, 1);
