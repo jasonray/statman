@@ -1,11 +1,5 @@
-var _metrics = [];
+var gauge = require('./lib/gauge');
+exports.gauge = gauge;
 
-exports.register = function(metricname, metric) {
-	var metricentry = {};
-	metricentry.name = metricname;
-	metricentry.metric = metric;
-};
-
-exports.list = function() {
-	return _metrics;
-};
+var registry = require('./lib/registry');
+exports.registry = registry;

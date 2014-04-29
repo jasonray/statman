@@ -2,7 +2,7 @@
   "name": "statman",
   "version": "0.0.2",
   "description": "statman",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "./node_modules/nodeunit/bin/nodeunit test/"
   },
