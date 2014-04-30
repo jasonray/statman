@@ -30,16 +30,13 @@ exports.modifyValueOfGauge = function(test) {
 };
 
 exports.autoregister = function(test) {
-	var gaugeConstructor = function() {
-		return new metrics.gauge('auto');
-	};
-	var gauge = metrics.registry('auto', gaugeConstructor);
+	var gauge = metrics.gauges('auto');
 
 	test.equal('auto', gauge.name());
 	gauge.increment();
 	test.equal(1, gauge.value());
 
-	gauge2 = metrics.registry('auto', gaugeConstructor);
+	gauge2 = metrics.gauges('auto');
 	test.equal('auto', gauge2.name());
 	test.equal(1, gauge2.value());
 
