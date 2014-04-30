@@ -1,3 +1,6 @@
+/*jslint node: true */
+"use strict";
+
 var gauge = require('./lib/gauge');
 exports.gauge = gauge;
 
