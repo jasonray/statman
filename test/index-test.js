@@ -17,3 +17,4 @@ exports.registerGauge = function(test) {
 	test.equal(1, gauge.value());
 	test.done();
 };
+

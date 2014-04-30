@@ -28,3 +28,20 @@ exports.modifyValueOfGauge = function(test) {
 	test.equal(11, metrics.registry('a').value());
 	test.done();
 };
+
+exports.autoregister = function(test) {
+	var gaugeConstructor = function() {
+		return new metrics.gauge('auto');
+	};
+	var gauge = metrics.registry('auto', gaugeConstructor);
+
+	test.equal('auto', gauge.name());
+	gauge.increment();
+	test.equal(1, gauge.value());
+
+	gauge2 = metrics.registry('auto', gaugeConstructor);
+	test.equal('auto', gauge2.name());
+	test.equal(1, gauge2.value());
+
+	test.done();
+};
