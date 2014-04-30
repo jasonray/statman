@@ -17,6 +17,7 @@ Suppose that we want to create a gauage that measures that size of a queue.  The
 Register and using a gauge
 --------------------------
 ### Method 1
+```
 var gauge = new Gauge('queueSize');
 metrics.gauges.register(gauge);
 
@@ -29,8 +30,10 @@ function dequeue() {
 	data.pop(message);
 	metrics.gauges('queueSize').decrement();
 }
+```
 
 ### Method 2
+```
 var gauge = new Gauge('queueSize');
 metrics.gauges.register(gauge);
 
@@ -43,8 +46,10 @@ function dequeue() {
 	data.pop(message);
 	gauge.decrement();
 }
+```
 
 ### Method 3
+```
 var gauge = new Gauge('queueSize', function() {
 	return data.size();
 });
@@ -59,11 +64,12 @@ function dequeue() {
 	data.pop(message);
 	gauge.decrement();
 }
+```
 
 Increment
 ---------
 ```
-var gauge = new gaugelib.Gauge('metric-name');
+var gauge = new metrics.gauge('metric-name');
 gauge.increment();  //increment by 1
 gauge.increment(10); //increment by 10
 ```
@@ -71,7 +77,7 @@ gauge.increment(10); //increment by 10
 Decrement
 ---------
 ```
-var gauge = new gaugelib.Gauge('metric-name');
+var gauge = new metrics.gauge('metric-name');
 gauge.decrement();  //decrement by 1
 gauge.decrement(10); //decrement by 10
 ```
@@ -79,7 +85,7 @@ gauge.decrement(10); //decrement by 10
 Set
 ---
 ```
-var gauge = new gaugelib.Gauge('metric-name');
+var gauge = new metrics.gauge('metric-name');
 gauge.set(5);
 ```
 
@@ -87,7 +93,7 @@ Value
 -----
 To get gauge value:
 ```
-gague.value();
+gauge.value();
 ```
 
 Development
