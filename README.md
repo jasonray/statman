@@ -12,7 +12,7 @@ Gauge
 =====
 Based upon [codehale metric package](http://metrics.codahale.com/getting-started/#gauges), a gauge is an instanteous measurement.
 
-Suppose that we want to create a gauage that measures that size of a queue.  The below indicates how to regsiter this.
+Suppose that we want to create a gauage that measures that size of a queue.  The below indicates how to register this.
 
 Register and using a gauge
 --------------------------
