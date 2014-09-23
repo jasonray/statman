@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git://github.com/jasonray/statman.git"
   },
-  "author": "j.ray",
+  "author": "jasonray",  
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/jasonray/statman/issues"
