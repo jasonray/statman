@@ -14,3 +14,18 @@ exports.initStopwatchWithoutName = function(test) {
 	test.ok(stopwatch.name !== undefined);
 	test.done();
 };
+
+exports.startAndReadStopwatch = function(test) {
+	var stopwatch = new Stopwatch('mystopwatch');
+	console.log('starting stopwatch');
+	stopwatch.start();
+	console.log('started stopwatch');
+	setTimeout(function() {
+		console.log('finishing stopwatch');
+		var delta = stopwatch.read();
+		// console.log('read stopwatch [%s]', delta);
+		// test.equal(delta, 1000);
+		test.done();
+		console.log('done!');
+	}, 1000);
+};
