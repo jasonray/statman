@@ -36,6 +36,15 @@ exports.startAndReadStopwatch10 = function(test) {
     }, 10);
 };
 
+exports.autostart = function(test) {
+    var stopwatch = new Stopwatch('autostartA', false);
+    setTimeout(function() {
+        var delta = stopwatch.read();
+        verifyDelta(test, 1000, delta, defaultPrecision);
+        test.done();
+    }, 1000);
+};
+
 exports.twoStopWatches = function(test) {
     var stopwatch1 = new Stopwatch('sw1');
     var stopwatch2 = new Stopwatch('sw2');
