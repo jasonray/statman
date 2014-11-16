@@ -15,7 +15,7 @@ exports.initStopwatchWithoutName = function(test) {
     test.done();
 };
 
-exports.startAndReadStopwatch = function(test) {
+exports.startAndReadStopwatch1000 = function(test) {
     var stopwatch = new Stopwatch('mystopwatch');
     console.log('starting stopwatch');
     stopwatch.start();
@@ -28,6 +28,21 @@ exports.startAndReadStopwatch = function(test) {
         test.done();
         console.log('done!');
     }, 1000);
+};
+
+exports.startAndReadStopwatch10 = function(test) {
+    var stopwatch = new Stopwatch('mystopwatch');
+    console.log('starting stopwatch');
+    stopwatch.start();
+    console.log('started stopwatch');
+    setTimeout(function() {
+        console.log('finishing stopwatch');
+        var delta = stopwatch.read();
+        console.log('read stopwatch [%s]', delta);
+        verifyDelta(test, 10, delta, 1);
+        test.done();
+        console.log('done!');
+    }, 10);
 };
 
 function verifyDelta(test, expected, actual, acceptedVariance) {
