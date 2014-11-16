@@ -4,9 +4,29 @@ Package to assist with collection of metrics
 
 Installation
 ============
-TBD
+Install using npm:
+```
+npm install statman
+```
 
+To use:
+```
+var metrics = require('statman');
+```
 
+Stopwatch
+=========
+Stopwatch is useful for determining the amount of time it takes to perform an activity.
+
+```
+    var metrics = require('statman');
+    var stopwatch = new metrics.Stopwatch('stopwatch name');
+    stopwatch.start();
+
+    // do some activity
+
+    var delta = stopwatch.read();
+```
 
 Gauge
 =====
