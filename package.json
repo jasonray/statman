@@ -1,6 +1,6 @@
 {
   "name": "statman",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "statman",
   "main": "./lib/metrics.js",
   "scripts": {
