@@ -10,6 +10,13 @@ exports.initStopwatch = function(test) {
     test.done();
 };
 
+exports.initStopwatchFromMetrics = function(test) {
+    var metrics = require('../lib/metrics');
+    var stopwatch = new metrics.Stopwatch('m');
+    test.equal(stopwatch.name, 'm');
+    test.done();
+};
+
 exports.initStopwatchWithoutName = function(test) {
     var stopwatch = new Stopwatch();
     test.ok(stopwatch.name !== undefined);
