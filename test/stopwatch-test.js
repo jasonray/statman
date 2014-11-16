@@ -2,6 +2,7 @@
 "use strict";
 
 var Stopwatch = require('../lib/Stopwatch');
+var defaultPrecision = 5;
 
 exports.initStopwatch = function(test) {
     var stopwatch = new Stopwatch('mystopwatch');
@@ -24,7 +25,7 @@ exports.startAndReadStopwatch1000 = function(test) {
         console.log('finishing stopwatch');
         var delta = stopwatch.read();
         console.log('read stopwatch [%s]', delta);
-        verifyDelta(test, 1000, delta, 10);
+        verifyDelta(test, 1000, delta, defaultPrecision);
         test.done();
         console.log('done!');
     }, 1000);
@@ -39,7 +40,7 @@ exports.startAndReadStopwatch10 = function(test) {
         console.log('finishing stopwatch');
         var delta = stopwatch.read();
         console.log('read stopwatch [%s]', delta);
-        verifyDelta(test, 10, delta, 1);
+        verifyDelta(test, 10, delta, defaultPrecision);
         test.done();
         console.log('done!');
     }, 10);
