@@ -6,26 +6,26 @@ exports.hello = function(test) {
 };
 
 exports.gauagename = function(test) {
-	var gauge = new metrics.gauge('metric-name');
+	var gauge = new metrics.Gauge('metric-name');
 	test.equal('metric-name', gauge.name());
 	test.done();
 };
 
 exports.initializesTo0 = function(test) {
-	var gauge = new metrics.gauge('metric-name');
+	var gauge = new metrics.Gauge('metric-name');
 	test.equal(0, gauge.value());
 	test.done();
 };
 
 exports.increment = function(test) {
-	var gauge = new metrics.gauge('metric-name');
+	var gauge = new metrics.Gauge('metric-name');
 	gauge.increment();
 	test.equal(1, gauge.value());
 	test.done();
 };
 
 exports.incrementByValue = function(test) {
-	var gauge = new metrics.gauge('metric-name');
+	var gauge = new metrics.Gauge('metric-name');
 	gauge.set(10);
 	gauge.increment(2);
 	test.equal(12, gauge.value());
@@ -33,14 +33,14 @@ exports.incrementByValue = function(test) {
 };
 
 exports.decrement = function(test) {
-	var gauge = new metrics.gauge('metric-name');
+	var gauge = new metrics.Gauge('metric-name');
 	gauge.decrement();
 	test.equal(-1, gauge.value());
 	test.done();
 };
 
 exports.decrementByValue = function(test) {
-	var gauge = new metrics.gauge('metric-name');
+	var gauge = new metrics.Gauge('metric-name');
 	gauge.set(10);
 	gauge.decrement(2);
 	test.equal(8, gauge.value());
@@ -48,14 +48,14 @@ exports.decrementByValue = function(test) {
 };
 
 exports.set = function(test) {
-	var gauge = new metrics.gauge('metric-name');
+	var gauge = new metrics.Gauge('metric-name');
 	gauge.set(5);
 	test.equal(5, gauge.value());
 	test.done();
 };
 
 function testSetWithInvalidInput(test, input) {
-	var gauge = new metrics.gauge('metric-name');
+	var gauge = new metrics.Gauge('metric-name');
 	test.throws(function() {
 		gauge.set('str');
 	}, Error, "`set` should throw exception if passed non-numeric value");
@@ -82,27 +82,27 @@ exports.allowCustomValueFunction = function(test) {
 		return 5;
 	};
 
-	var gauge = new metrics.gauge('metric-name', customValueFunction);
+	var gauge = new metrics.Gauge('metric-name', customValueFunction);
 	test.equal(5, gauge.value());
 	test.done();
 };
 
 exports.disallowNonFunctionForCustomValueFunction = function(test) {
 	test.throws(function() {
-		var gauge = new metrics.gauge('metric-name', 5);
+		var gauge = new metrics.Gauge('metric-name', 5);
 	});
 
 	test.done();
 };
 
 exports.twoGauage = function(test) {
-	var gaugeA = new metrics.gauge('metric-name');
+	var gaugeA = new metrics.Gauge('metric-name');
 	gaugeA.set(5);
 	gaugeA.increment();
 	gaugeA.increment();
 	gaugeA.decrement();
 
-	var gaugeB = new metrics.gauge('metric-name');
+	var gaugeB = new metrics.Gauge('metric-name');
 	gaugeB.set(10);
 	gaugeB.increment();
 	gaugeB.decrement();

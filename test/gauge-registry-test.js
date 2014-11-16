@@ -1,14 +1,14 @@
 var metrics = require('../lib/metrics');
 
 exports.activelyRegisterGauage = function(test) {
-	var gauge = new metrics.gauge('metric-name');
+	var gauge = new metrics.Gauge('metric-name');
 	metrics.register(gauge);
 	test.equal('metric-name', gauge.name());
 	test.done();
 };
 
 exports.retrieveGauage = function(test) {
-	var gauge = new metrics.gauge('metric-name');
+	var gauge = new metrics.Gauge('metric-name');
 	metrics.register(gauge);
 	var retrievedGauge = metrics.registry('metric-name');
 	test.equal('metric-name', gauge.name());
@@ -16,7 +16,7 @@ exports.retrieveGauage = function(test) {
 };
 
 exports.modifyValueOfGauge = function(test) {
-	var gauge = new metrics.gauge('a');
+	var gauge = new metrics.Gauge('a');
 	metrics.register(gauge);
 
 	metrics.registry('a').set(5);
