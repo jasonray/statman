@@ -98,4 +98,4 @@ gauge.value();
 
 Development
 ===========
-run the unit tests: `./runtest.sh`
+run the unit tests: `npm test`
