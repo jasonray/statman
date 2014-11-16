@@ -118,4 +118,4 @@ gauge.value();
 
 Development
 ===========
-run the unit tests: `npm test`
+To run the unit tests: `npm test`
