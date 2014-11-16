@@ -37,13 +37,19 @@ exports.startAndReadStopwatch10 = function(test) {
 };
 
 exports.autostart = function(test) {
-    var stopwatch = new Stopwatch('autostartA', true);
+    var stopwatchA = new Stopwatch('autostartA', true);
+    var stopwatchB = new Stopwatch('notautostartB', false);
     setTimeout(function() {
-        var delta = stopwatch.read();
-        verifyDelta(test, 1000, delta, defaultPrecision);
+        var deltaA = stopwatchA.read();
+        verifyDelta(test, 1000, deltaA, defaultPrecision);
+
+        var deltaB = stopwatchB.read();
+        test.ok(isNaN(deltaB));
         test.done();
     }, 1000);
 };
+
+
 
 exports.twoStopWatches = function(test) {
     var stopwatch1 = new Stopwatch('sw1');
@@ -64,7 +70,6 @@ exports.twoStopWatches = function(test) {
             test.done();
         }, 3000);
     }, 500);
-
 };
 
 function verifyDelta(test, expected, actual, acceptedVariance) {
