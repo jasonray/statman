@@ -37,7 +37,7 @@ exports.startAndReadStopwatch10 = function(test) {
 };
 
 exports.autostart = function(test) {
-    var stopwatch = new Stopwatch('autostartA', false);
+    var stopwatch = new Stopwatch('autostartA', true);
     setTimeout(function() {
         var delta = stopwatch.read();
         verifyDelta(test, 1000, delta, defaultPrecision);
