@@ -96,6 +96,13 @@ exports.utilizeStop = function(test) {
     }, 1000);
 };
 
+exports.stopWithoutStart = function(test) {
+    var stopwatch = new Stopwatch('a');
+    stopwatch.stop();
+    test.ok(isNaN(stopwatch.read()));
+    test.done();
+};
+
 function verifyDelta(test, expected, actual, acceptedVariance) {
     var lowerThreshold = expected - acceptedVariance;
     var upperThreshold = expected + acceptedVariance;
