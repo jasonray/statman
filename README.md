@@ -1,5 +1,5 @@
-statman
-=======
+# statman [![Build Status](https://travis-ci.org/jasonray/statman.svg?branch=master)](https://travis-ci.org/jasonray/statman)
+
 Package to assist with collection of metrics
 
 Installation
