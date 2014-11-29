@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git://github.com/jasonray/statman.git"
   },
-  "author": "jasonray",  
+  "author": "jasonray",
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/jasonray/statman/issues"
@@ -19,6 +19,7 @@
     "node-uuid": "^1.4.1",
     "nodeunit": "~0.8.6",
     "performance-now": "^0.2.0",
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "statman-stopwatch": "~1.0.3"
   }
 }
