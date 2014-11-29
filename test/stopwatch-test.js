@@ -41,6 +41,5 @@ function verifyDelta(test, expected, actual, acceptedVariance) {
     var lowerThreshold = expected - acceptedVariance;
     var upperThreshold = expected + acceptedVariance;
     var message = "Expected " + expected + " ± " + acceptedVariance + ", was " + actual + ".";
-    console.log(message);
     test.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
 }
