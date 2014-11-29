@@ -2,34 +2,17 @@
 "use strict";
 
 var Stopwatch = require('../lib/metrics').Stopwatch;
-// var defaultPrecision = 5;
+var defaultPrecision = 5;
 
-// exports.initStopwatch = function(test) {
-//     var stopwatch = new Stopwatch('mystopwatchA');
-//     test.equal(stopwatch.name, 'mystopwatchA');
-//     test.done();
-// };
-
-exports.initStopwatchFromMetrics = function(test) {
+exports.startAndReadStopwatch1000 = function(test) {
     var stopwatch = new Stopwatch();
-    test.done();
+    stopwatch.start();
+    setTimeout(function() {
+        var delta = stopwatch.read();
+        verifyDelta(test, 1000, delta, defaultPrecision);
+        test.done();
+    }, 1000);
 };
-
-// exports.initStopwatchWithoutName = function(test) {
-//     var stopwatch = new Stopwatch();
-//     test.ok(stopwatch.name !== undefined);
-//     test.done();
-// };
-
-// exports.startAndReadStopwatch1000 = function(test) {
-//     var stopwatch = new Stopwatch('mystopwatchB');
-//     stopwatch.start();
-//     setTimeout(function() {
-//         var delta = stopwatch.read();
-//         verifyDelta(test, 1000, delta, defaultPrecision);
-//         test.done();
-//     }, 1000);
-// };
 
 // exports.startAndReadStopwatch10 = function(test) {
 //     var stopwatch = new Stopwatch('mystopwatchC');
@@ -121,10 +104,10 @@ exports.initStopwatchFromMetrics = function(test) {
 //     }, 1000);
 // };
 
-// function verifyDelta(test, expected, actual, acceptedVariance) {
-//     var lowerThreshold = expected - acceptedVariance;
-//     var upperThreshold = expected + acceptedVariance;
-//     var message = "Expected " + expected + " ± " + acceptedVariance + ", was " + actual + ".";
-//     console.log(message);
-//     test.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
-// }
+function verifyDelta(test, expected, actual, acceptedVariance) {
+    var lowerThreshold = expected - acceptedVariance;
+    var upperThreshold = expected + acceptedVariance;
+    var message = "Expected " + expected + " ± " + acceptedVariance + ", was " + actual + ".";
+    console.log(message);
+    test.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
+}
