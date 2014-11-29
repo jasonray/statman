@@ -16,8 +16,16 @@
     "url": "https://github.com/jasonray/statman/issues"
   },
   "dependencies": {
-    "nodeunit": "~0.8.6",
     "underscore": "~1.6.0",
     "statman-stopwatch": "1.0.3"
-  }
+  },
+  "devDependencies": {
+    "nodeunit": "~0.8.6"
+  },
+  "keywords": [
+    "stopwatch",
+    "timing",
+    "performance",
+    "timer"
+  ]
 }
