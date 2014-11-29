@@ -20,6 +20,6 @@
     "nodeunit": "~0.8.6",
     "performance-now": "^0.2.0",
     "underscore": "~1.6.0",
-    "statman-stopwatch": "~1.0.3"
+    "statman-stopwatch": "1.0.3"
   }
 }
