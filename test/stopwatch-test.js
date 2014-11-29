@@ -14,28 +14,14 @@ exports.startAndReadStopwatch1000 = function(test) {
     }, 1000);
 };
 
-// exports.startAndReadStopwatch10 = function(test) {
-//     var stopwatch = new Stopwatch('mystopwatchC');
-//     stopwatch.start();
-//     setTimeout(function() {
-//         var delta = stopwatch.read();
-//         verifyDelta(test, 10, delta, defaultPrecision);
-//         test.done();
-//     }, 10);
-// };
-
-// exports.autostart = function(test) {
-//     var stopwatchA = new Stopwatch('autostartA', true);
-//     var stopwatchB = new Stopwatch('notautostartB', false);
-//     setTimeout(function() {
-//         var deltaA = stopwatchA.read();
-//         verifyDelta(test, 1000, deltaA, defaultPrecision);
-
-//         var deltaB = stopwatchB.read();
-//         test.ok(isNaN(deltaB));
-//         test.done();
-//     }, 1000);
-// };
+exports.autostart = function(test) {
+    var stopwatch = new Stopwatch(true);
+    setTimeout(function() {
+        var delta = stopwatch.read();
+        verifyDelta(test, 1000, delta, defaultPrecision);
+        test.done();
+    }, 1000);
+};
 
 
 
