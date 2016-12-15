@@ -77,12 +77,10 @@ metrics.gauges.register(gauge);
 
 function enqueue(message) {
 	data.push(message);
-	gauge.increment();
 }
 
 function dequeue() {
 	data.pop(message);
-	gauge.decrement();
 }
 ```
 
