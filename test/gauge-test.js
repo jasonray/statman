@@ -81,7 +81,7 @@ describe('gauge', function () {
 
     it('disallowNonFunctionForCustomValueFunction', function () {
         assert.throws(function () {
-            var gauge = new   Gauge('metric-name', 5);
+            var gauge = new Gauge('metric-name', 5);
         });
     });
 
