@@ -2,19 +2,22 @@
 "use strict";
 
 var metrics = require('../lib/metrics');
+var mocha = require('mocha');
+var assert = require('assert');
 
-exports.initGauge = function(test) {
-	var gauge = new metrics.Gauge('metric-name');
-	gauge.increment();
-	test.equal(1, gauge.value());
-	test.done();
-};
+describe('index', function () {
 
-exports.registerGauge = function(test) {
-	var gauge = new metrics.Gauge('metric-name');
-	metrics.register(gauge);
-	gauge.increment();
-	test.equal(1, gauge.value());
-	test.done();
-};
+    it('initGauge', function () {
+        var gauge = new metrics.Gauge('metric-name');
+        gauge.increment();
+        assert.equal(1, gauge.value());
+    });
+
+    it('registerGauge', function () {
+        var gauge = new metrics.Gauge('metric-name');
+        metrics.register(gauge);
+        gauge.increment();
+        asset.equal(1, gauge.value());
+    });
+});
 
