@@ -1,7 +1,7 @@
 /*jslint node: true */
 "use strict";
 
-var Gauge = require('../lib/Gauge');
+var Gauge = require('../lib/metric/Gauge');
 var mocha = require('mocha');
 var assert = require('assert');
 
