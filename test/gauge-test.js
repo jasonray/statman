@@ -6,11 +6,6 @@ var mocha = require('mocha');
 var assert = require('assert');
 
 describe('gauge', function () {
-    it('hello', function () {
-        assert.equal(1, 1);
-    });
-
-
     it('gauagename', function () {
         var gauge = new Gauge('metric-name');
         assert.equal('metric-name', gauge.name());
