@@ -5,102 +5,106 @@ var Gauge = require('../lib/Gauge');
 var mocha = require('mocha');
 var assert = require('assert');
 
-exports.hello = function(test) {
-    test.equals(1, 1);
-    test.done();
-};
+describe('gauge', function ()  {
+    
 
-exports.gauagename = function(test) {
+
+it('hello, function ( ) {
+                       assert.equal        (1, 1);
+                               
+                            });
+
+it('gauagename, function ( ) {
     var gauge = new metrics.Gauge('metric-name');
     test.equal('metric-name', gauge.name());
-    test.done();
-};
+                               
+                            });
 
-exports.initializesTo0 = function(test) {
+it('initializesTo0, function ( ) {
     var gauge = new metrics.Gauge('metric-name');
     test.equal(0, gauge.value());
-    test.done();
-};
+                               
+                            });
 
-exports.increment = function(test) {
+it('increment, function ( ) {
     var gauge = new metrics.Gauge('metric-name');
     gauge.increment();
     test.equal(1, gauge.value());
-    test.done();
-};
+                               
+                            });
 
-exports.incrementByValue = function(test) {
+it('incrementByValue, function ( ) {
     var gauge = new metrics.Gauge('metric-name');
     gauge.set(10);
     gauge.increment(2);
     test.equal(12, gauge.value());
-    test.done();
-};
+                               
+                            });
 
-exports.decrement = function(test) {
+it('decrement, function ( ) {
     var gauge = new metrics.Gauge('metric-name');
     gauge.decrement();
     test.equal(-1, gauge.value());
-    test.done();
-};
+                               
+                            });
 
-exports.decrementByValue = function(test) {
+it('decrementByValue, function ( ) {
     var gauge = new metrics.Gauge('metric-name');
     gauge.set(10);
     gauge.decrement(2);
     test.equal(8, gauge.value());
-    test.done();
-};
+                               
+                            });
 
-exports.set = function(test) {
+it('set, function ( ) {
     var gauge = new metrics.Gauge('metric-name');
     gauge.set(5);
     test.equal(5, gauge.value());
-    test.done();
-};
+                               
+                            });
 
 function testSetWithInvalidInput(test, input) {
     var gauge = new metrics.Gauge('metric-name');
     test.throws(function() {
         gauge.set('str');
     }, Error, "`set` should throw exception if passed non-numeric value");
-    test.done();
+                               
 }
 
-exports.setNotAllowString = function(test) {
+it('setNotAllowString, function ( ) {
     var input = "str";
     testSetWithInvalidInput(test, input);
-};
+                            });
 
-exports.setNotAllowNull = function(test) {
+it('setNotAllowNull, function ( ) {
     var input = null;
     testSetWithInvalidInput(test, input);
-};
+                            });
 
-exports.setNotAllowUninitialized = function(test) {
+it('setNotAllowUninitialized, function ( ) {
     var input;
     testSetWithInvalidInput(test, input);
-};
+                            });
 
-exports.allowCustomValueFunction = function(test) {
+it('allowCustomValueFunction, function ( ) {
     var customValueFunction = function() {
         return 5;
-    };
+                                });
 
     var gauge = new metrics.Gauge('metric-name', customValueFunction);
     test.equal(5, gauge.value());
-    test.done();
-};
+                               
+                            });
 
-exports.disallowNonFunctionForCustomValueFunction = function(test) {
+it('disallowNonFunctionForCustomValueFunction, function ( ) {
     test.throws(function() {
         var gauge = new metrics.Gauge('metric-name', 5);
     });
 
-    test.done();
-};
+                               
+                            });
 
-exports.twoGauage = function(test) {
+it('twoGauage, function ( ) {
     var gaugeA = new metrics.Gauge('metric-name');
     gaugeA.set(5);
     gaugeA.increment();
@@ -115,5 +119,7 @@ exports.twoGauage = function(test) {
 
     test.equal(6, gaugeA.value());
     test.equal(9, gaugeB.value());
-    test.done();
-};
+                               
+                            });
+
+}
