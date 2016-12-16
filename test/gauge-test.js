@@ -46,7 +46,6 @@ describe('gauge', function () {
         var gauge = new Gauge('metric-name');
         gauge.set(5);
         assert.equal(5, gauge.value());
-
     });
 
     // function testSetWithInvalidInput(test, input) {
