@@ -40,7 +40,6 @@ describe('gauge', function () {
         gauge.set(10);
         gauge.decrement(2);
         assert.equal(8, gauge.value());
-
     });
 
     it('set', function () {
