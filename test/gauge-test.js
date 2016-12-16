@@ -9,7 +9,6 @@ describe('gauge', function () {
     it('gauagename', function () {
         var gauge = new Gauge('metric-name');
         assert.equal('metric-name', gauge.name());
-
     });
 
     it('initializesTo0', function () {
