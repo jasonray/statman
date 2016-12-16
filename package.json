@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/jasonray/statman-gauge/issues"
   },
-  "homepage": "https://github.com/jasonray/statman-gauge"
+  "homepage": "https://github.com/jasonray/statman-gauge",
+  "dependencies": {
+    "mocha": "^3.2.0"
+  }
 }
