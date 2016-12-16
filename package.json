@@ -16,6 +16,7 @@
     "url": "https://github.com/jasonray/statman/issues"
   },
   "dependencies": {
+    "performance-now": "^0.2.0",
     "statman-stopwatch": "1.0.7",
     "underscore": "~1.6.0"
   },
