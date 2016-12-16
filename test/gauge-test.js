@@ -12,26 +12,26 @@ describe('gauge', function () {
 
 
     it('gauagename', function () {
-        var gauge = new  Gauge('metric-name');
+        var gauge = new Gauge('metric-name');
         assert.equal('metric-name', gauge.name());
 
     });
 
     it('initializesTo0', function () {
-        var gauge = new  Gauge('metric-name');
+        var gauge = new Gauge('metric-name');
         assert.equal(0, gauge.value());
 
     });
 
     it('increment', function () {
-        var gauge = new  Gauge('metric-name');
+        var gauge = new Gauge('metric-name');
         gauge.increment();
         assert.equal(1, gauge.value());
 
     });
 
     it('incrementByValue', function () {
-        var gauge = new  Gauge('metric-name');
+        var gauge = new Gauge('metric-name');
         gauge.set(10);
         gauge.increment(2);
         assert.equal(12, gauge.value());
@@ -39,14 +39,14 @@ describe('gauge', function () {
     });
 
     it('decrement', function () {
-        var gauge = new  Gauge('metric-name');
+        var gauge = new Gauge('metric-name');
         gauge.decrement();
         assert.equal(-1, gauge.value());
 
     });
 
     it('decrementByValue', function () {
-        var gauge = new  Gauge('metric-name');
+        var gauge = new Gauge('metric-name');
         gauge.set(10);
         gauge.decrement(2);
         assert.equal(8, gauge.value());
@@ -54,7 +54,7 @@ describe('gauge', function () {
     });
 
     it('set', function () {
-        var gauge = new  Gauge('metric-name');
+        var gauge = new Gauge('metric-name');
         gauge.set(5);
         assert.equal(5, gauge.value());
 
@@ -88,9 +88,8 @@ describe('gauge', function () {
             return 5;
         }
 
-        var gauge = new    Gauge('metric-name', customValueFunction);
+        var gauge = new Gauge('metric-name', customValueFunction);
         assert.equal(5, gauge.value());
-
     });
 
     // it('disallowNonFunctionForCustomValueFunction', function () {
@@ -100,13 +99,13 @@ describe('gauge', function () {
     // });
 
     it('twoGauage', function () {
-        var gaugeA = new  Gauge('metric-name');
+        var gaugeA = new Gauge('metric-name');
         gaugeA.set(5);
         gaugeA.increment();
         gaugeA.increment();
         gaugeA.decrement();
 
-        var gaugeB = new  Gauge('metric-name');
+        var gaugeB = new Gauge('metric-name');
         gaugeB.set(10);
         gaugeB.increment();
         gaugeB.decrement();
