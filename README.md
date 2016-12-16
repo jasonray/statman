@@ -19,7 +19,7 @@ Stopwatch is useful for determining the amount of time it takes to perform an ac
 ### Basic usage
 Create a new stopwatch, `start()` it, and later `read()` it
 ```
-    var Stopwatch = require('statman-stopwatch');
+    var Stopwatch = require('statman').Stopwatch;
     var stopwatch = new Stopwatch();
     stopwatch.start();
 
@@ -31,7 +31,7 @@ Create a new stopwatch, `start()` it, and later `read()` it
 ### Autostart
 `start()` is too hard.  Create a new stopwatch with autostart=true, and later `read()` it
 ```
-    var Stopwatch = require('statman-stopwatch');
+    var Stopwatch = require('statman').Stopwatch;
     var stopwatch = new Stopwatch(true);
 
     // do some activity
@@ -42,7 +42,7 @@ Create a new stopwatch, `start()` it, and later `read()` it
 ### Stop
 Create a new stopwatch, `stop()` it, and later `read()` it
 ```
-    var Stopwatch = require('statman-stopwatch');
+    var Stopwatch = require('statman').Stopwatch;
     var stopwatch = new Stopwatch(true);
 
     // do some activity
