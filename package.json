@@ -1,0 +1,25 @@
+{
+  "name": "statman-gauge",
+  "version": "0.0.1",
+  "description": "gauge control",
+  "main": "lib/Gauge.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasonray/statman-gauge.git"
+  },
+  "keywords": [
+    "statman"
+  ],
+  "author": "jasonray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonray/statman-gauge/issues"
+  },
+  "homepage": "https://github.com/jasonray/statman-gauge"
+}
