@@ -1,114 +1,105 @@
-var metrics = require('../lib/metrics');
+/*jslint node: true */
+"use strict";
 
-exports.hello = function(test) {
-	test.equals(1, 1);
-	test.done();
-};
+var Gauge = require('../lib/Gauge');
+var mocha = require('mocha');
+var assert = require('assert');
 
-exports.gauagename = function(test) {
-	var gauge = new metrics.Gauge('metric-name');
-	test.equal('metric-name', gauge.name());
-	test.done();
-};
+describe('gauge', function () {
+    it('gauagename', function () {
+        var gauge = new Gauge('metric-name');
+        assert.equal('metric-name', gauge.name());
+    });
 
-exports.initializesTo0 = function(test) {
-	var gauge = new metrics.Gauge('metric-name');
-	test.equal(0, gauge.value());
-	test.done();
-};
+    it('initializesTo0', function () {
+        var gauge = new Gauge('metric-name');
+        assert.equal(0, gauge.value());
+    });
 
-exports.increment = function(test) {
-	var gauge = new metrics.Gauge('metric-name');
-	gauge.increment();
-	test.equal(1, gauge.value());
-	test.done();
-};
+    it('increment', function () {
+        var gauge = new Gauge('metric-name');
+        gauge.increment();
+        assert.equal(1, gauge.value());
+    });
 
-exports.incrementByValue = function(test) {
-	var gauge = new metrics.Gauge('metric-name');
-	gauge.set(10);
-	gauge.increment(2);
-	test.equal(12, gauge.value());
-	test.done();
-};
+    it('incrementByValue', function () {
+        var gauge = new Gauge('metric-name');
+        gauge.set(10);
+        gauge.increment(2);
+        assert.equal(12, gauge.value());
+    });
 
-exports.decrement = function(test) {
-	var gauge = new metrics.Gauge('metric-name');
-	gauge.decrement();
-	test.equal(-1, gauge.value());
-	test.done();
-};
+    it('decrement', function () {
+        var gauge = new Gauge('metric-name');
+        gauge.decrement();
+        assert.equal(-1, gauge.value());
+    });
 
-exports.decrementByValue = function(test) {
-	var gauge = new metrics.Gauge('metric-name');
-	gauge.set(10);
-	gauge.decrement(2);
-	test.equal(8, gauge.value());
-	test.done();
-};
+    it('decrementByValue', function () {
+        var gauge = new Gauge('metric-name');
+        gauge.set(10);
+        gauge.decrement(2);
+        assert.equal(8, gauge.value());
+    });
 
-exports.set = function(test) {
-	var gauge = new metrics.Gauge('metric-name');
-	gauge.set(5);
-	test.equal(5, gauge.value());
-	test.done();
-};
+    it('set', function () {
+        var gauge = new Gauge('metric-name');
+        gauge.set(5);
+        assert.equal(5, gauge.value());
+    });
 
-function testSetWithInvalidInput(test, input) {
-	var gauge = new metrics.Gauge('metric-name');
-	test.throws(function() {
-		gauge.set('str');
-	}, Error, "`set` should throw exception if passed non-numeric value");
-	test.done();
-}
+    function testSetWithInvalidInput(test, input) {
+        var gauge = new Gauge('metric-name');
+        assert.throws(function () {
+            gauge.set('str');
+        }, Error, "`set` should throw exception if passed non-numeric value");
+    }
 
-exports.setNotAllowString = function(test) {
-	var input = "str";
-	testSetWithInvalidInput(test, input);
-};
+    it('setNotAllowString', function () {
+        var input = "str";
+        testSetWithInvalidInput(input);
+    });
 
-exports.setNotAllowNull = function(test) {
-	var input = null;
-	testSetWithInvalidInput(test, input);
-};
+    it('setNotAllowNull', function () {
+        var input = null;
+        testSetWithInvalidInput(input);
+    });
 
-exports.setNotAllowUninitialized = function(test) {
-	var input;
-	testSetWithInvalidInput(test, input);
-};
+    it('setNotAllowUninitialized', function () {
+        var input;
+        testSetWithInvalidInput(input);
+    });
 
-exports.allowCustomValueFunction = function(test) {
-	var customValueFunction = function() {
-		return 5;
-	};
+    it('allowCustomValueFunction', function () {
+        var customValueFunction = function () {
+            return 5;
+        }
 
-	var gauge = new metrics.Gauge('metric-name', customValueFunction);
-	test.equal(5, gauge.value());
-	test.done();
-};
+        var gauge = new Gauge('metric-name', customValueFunction);
+        assert.equal(5, gauge.value());
+    });
 
-exports.disallowNonFunctionForCustomValueFunction = function(test) {
-	test.throws(function() {
-		var gauge = new metrics.Gauge('metric-name', 5);
-	});
+    it('disallowNonFunctionForCustomValueFunction', function () {
+        assert.throws(function () {
+            var gauge = new Gauge('metric-name', 5);
+        });
+    });
 
-	test.done();
-};
+    it('twoGauage', function () {
+        var gaugeA = new Gauge('metric-name');
+        gaugeA.set(5);
+        gaugeA.increment();
+        gaugeA.increment();
+        gaugeA.decrement();
 
-exports.twoGauage = function(test) {
-	var gaugeA = new metrics.Gauge('metric-name');
-	gaugeA.set(5);
-	gaugeA.increment();
-	gaugeA.increment();
-	gaugeA.decrement();
+        var gaugeB = new Gauge('metric-name');
+        gaugeB.set(10);
+        gaugeB.increment();
+        gaugeB.decrement();
+        gaugeB.decrement();
 
-	var gaugeB = new metrics.Gauge('metric-name');
-	gaugeB.set(10);
-	gaugeB.increment();
-	gaugeB.decrement();
-	gaugeB.decrement();
+        assert.equal(6, gaugeA.value());
+        assert.equal(9, gaugeB.value());
+    });
 
-	test.equal(6, gaugeA.value());
-	test.equal(9, gaugeB.value());
-	test.done();
-};
+});
