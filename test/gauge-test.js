@@ -1,7 +1,7 @@
 /*jslint node: true */
 "use strict";
 
-var metrics = require('../lib/metrics');
+var Gauge = require('../lib/Gauge');
 
 exports.hello = function(test) {
     test.equals(1, 1);
