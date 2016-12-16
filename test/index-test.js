@@ -17,7 +17,7 @@ describe('index', function () {
         var gauge = new metrics.Gauge('metric-name');
         metrics.register(gauge);
         gauge.increment();
-        asset.equal(1, gauge.value());
+        assert.equal(1, gauge.value());
     });
 });
 
