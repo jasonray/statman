@@ -2,6 +2,8 @@
 "use strict";
 
 var Gauge = require('../lib/Gauge');
+var mocha = require('mocha');
+var assert = require('assert');
 
 exports.hello = function(test) {
     test.equals(1, 1);
