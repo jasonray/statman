@@ -6,7 +6,6 @@ var mocha = require('mocha');
 var assert = require('assert');
 
 describe('index', function () {
-
     it('initGauge', function () {
         var gauge = new metrics.Gauge('metric-name');
         gauge.increment();
