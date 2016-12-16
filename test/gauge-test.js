@@ -79,11 +79,11 @@ describe('gauge', function () {
         assert.equal(5, gauge.value());
     });
 
-    // it('disallowNonFunctionForCustomValueFunction', function () {
-    //     test.throws(function () {
-    //         var gauge = new   Gauge('metric-name', 5);
-    //     });
-    // });
+    it('disallowNonFunctionForCustomValueFunction', function () {
+        assert.throws(function () {
+            var gauge = new   Gauge('metric-name', 5);
+        });
+    });
 
     it('twoGauage', function () {
         var gaugeA = new Gauge('metric-name');
