@@ -14,14 +14,12 @@ describe('gauge', function () {
     it('initializesTo0', function () {
         var gauge = new Gauge('metric-name');
         assert.equal(0, gauge.value());
-
     });
 
     it('increment', function () {
         var gauge = new Gauge('metric-name');
         gauge.increment();
         assert.equal(1, gauge.value());
-
     });
 
     it('incrementByValue', function () {
