@@ -20,39 +20,39 @@ Stopwatch is useful for determining the amount of time it takes to perform an ac
 Create a new stopwatch, `start()` it, and later `read()` it
 ```
     var Stopwatch = require('statman-stopwatch');
-    var sw = new Stopwatch();
-    sw.start();
+    var stopwatch = new Stopwatch();
+    stopwatch.start();
 
     // do some activity
 
-    var delta = sw.read();
+    var delta = stopwatch.read();
  ```
 
 ### Autostart
 `start()` is too hard.  Create a new stopwatch with autostart=true, and later `read()` it
 ```
     var Stopwatch = require('statman-stopwatch');
-    var sw = new Stopwatch(true);
+    var stopwatch = new Stopwatch(true);
 
     // do some activity
 
-    var delta = sw.read();
+    var delta = stopwatch.read();
  ```
 
 ### Stop
 Create a new stopwatch, `stop()` it, and later `read()` it
 ```
     var Stopwatch = require('statman-stopwatch');
-    var sw = new Stopwatch(true);
+    var stopwatch = new Stopwatch(true);
 
     // do some activity
 
-    sw.stop();
+    stopwatch.stop();
 
     // do some more activity
 
     //returns time associated with when stop() occurred
-    var delta = sw.read();
+    var delta = stopwatch.read();
  ```
 
 ## Gauge
