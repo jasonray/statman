@@ -1,0 +1,33 @@
+{
+  "name": "statman-stopwatch",
+  "version": "1.0.7",
+  "description": "Simple high res stopwatch for node.js",
+  "main": "lib/Stopwatch.js",
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jasonray/statman-stopwatch.git"
+  },
+  "author": "jason ray <jason@jayray.net> (https://github.com/jasonray)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonray/statman-stopwatch/issues"
+  },
+  "dependencies": {
+    "performance-now": "^0.2.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "keywords": [
+    "stopwatch",
+    "timing",
+    "performance",
+    "timer"
+  ]
+}
