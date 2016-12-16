@@ -48,28 +48,27 @@ describe('gauge', function () {
         assert.equal(5, gauge.value());
     });
 
-    // function testSetWithInvalidInput(test, input) {
-    //     var gauge = new  Gauge('metric-name');
-    //     test.throws(function () {
-    //         gauge.set('str');
-    //     }, Error, "`set` should throw exception if passed non-numeric value");
-    //
-    // }
-    //
-    // it('setNotAllowString', function () {
-    //     var input = "str";
-    //     testSetWithInvalidInput(test, input);
-    // });
-    //
-    // it('setNotAllowNull', function () {
-    //     var input = null;
-    //     testSetWithInvalidInput(test, input);
-    // });
-    //
-    // it('setNotAllowUninitialized', function () {
-    //     var input;
-    //     testSetWithInvalidInput(test, input);
-    // });
+    function testSetWithInvalidInput(test, input) {
+        var gauge = new Gauge('metric-name');
+        assert.throws(function () {
+            gauge.set('str');
+        }, Error, "`set` should throw exception if passed non-numeric value");
+    }
+
+    it('setNotAllowString', function () {
+        var input = "str";
+        testSetWithInvalidInput(input);
+    });
+
+    it('setNotAllowNull', function () {
+        var input = null;
+        testSetWithInvalidInput(input);
+    });
+
+    it('setNotAllowUninitialized', function () {
+        var input;
+        testSetWithInvalidInput(input);
+    });
 
     it('allowCustomValueFunction', function () {
         var customValueFunction = function () {
