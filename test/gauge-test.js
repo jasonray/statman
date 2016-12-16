@@ -27,7 +27,6 @@ describe('gauge', function () {
         gauge.set(10);
         gauge.increment(2);
         assert.equal(12, gauge.value());
-
     });
 
     it('decrement', function () {
