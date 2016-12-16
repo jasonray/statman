@@ -101,7 +101,6 @@ describe('gauge', function () {
 
         assert.equal(6, gaugeA.value());
         assert.equal(9, gaugeB.value());
-
     });
 
 })
