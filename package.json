@@ -1,7 +1,7 @@
 {
   "name": "statman",
   "version": "0.1.7",
-  "description": "statman",
+  "description": "Package to assist with collection of metrics, including stopwatch functionality",
   "main": "./lib/metrics.js",
   "scripts": {
     "test": "mocha test/"
