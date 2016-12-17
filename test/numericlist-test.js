@@ -16,7 +16,12 @@ describe('numeric list', function () {
         assert.equal(list.sum(), 0);
     });
 
-    it('given a list of one integer number, sum should return the number')
+    it('given a list of one integer number, sum should return the number' , function () {
+        var list = new NumericList();
+        list.push(5);
+        assert.equal(list.sum(), 5);
+    });
+
     it('given a list of two integer numbers, sum should return the sum of the numbers')
     it('given a list of five integer numbers, sum should return the sum of the numbers')
 
