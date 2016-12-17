@@ -134,4 +134,29 @@ describe('numeric list', function () {
         assert.equal(list.average(), 3.3);
     });
 
+    it('pushing a list of 10,000 numbers and calculating sum/ave should run within milliseconds', function () {
+        this.timeout(100);
+
+        var testsize = 10000;
+        var list = new NumericList();
+
+        for (var i = 1; i <= testsize; i++) {
+            list.push(i);
+        }
+
+        function getExpected(n) {
+            return {
+                size: n,
+                average: (1 + n) / 2,
+                sum: n * (1 + n) / 2
+            }
+        }
+
+        var expected = getExpected(testsize);
+
+        assert.equal(list.size(), expected.size, "size");
+        assert.equal(list.sum(), expected.sum, "sum");
+        assert.equal(list.average(), expected.average, "ave");
+    });
+
 });
