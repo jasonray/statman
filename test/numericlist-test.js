@@ -45,7 +45,13 @@ describe('numeric list', function () {
         assert.equal(list.sum(), 5.5);
     });
 
-    it('given a list of two decimal numbers, sum should return the sum of the numbers')
+    it('given a list of two decimal numbers, sum should return the sum of the numbers', function () {
+        var list = new NumericList();
+        list.push(2.2);
+        list.push(4.4);
+        assert.equal(list.sum(), 6.6);
+    });
+
     it('given a list of five decimal numbers, sum should return the sum of the numbers')
 
     it('given an empty list, average should return 0')
