@@ -70,7 +70,7 @@ describe('numeric list', function () {
         var list = new NumericList();
         list.push(2.2);
         list.push(4.4);
-        assert.equal(list.sum(), 6.6);
+        assertCloseEnough(list.sum(), 6.6)
     });
 
     it('given a list of five decimal numbers, sum should return the sum of the numbers', function () {
@@ -114,14 +114,14 @@ describe('numeric list', function () {
     it('given a list of one decimal number, average should return the number', function () {
         var list = new NumericList();
         list.push(3.3);
-        assert.equal(list.average(), 3.3);
+        assertCloseEnough(list.average(), 3.3)
     });
 
     it('given a list of two decimal numbers, sum should return the average of the numbers', function () {
         var list = new NumericList();
         list.push(2.2);
         list.push(4.4);
-        assert.equal(list.average(), 3.3);
+        assertCloseEnough(list.average(), 3.3)
     });
 
     it('given a list of five decimal numbers, sum should return the average of the numbers', function () {
@@ -131,13 +131,14 @@ describe('numeric list', function () {
         list.push(3.3);
         list.push(4.4);
         list.push(5.5);
-        assert.equal(list.average(), 3.3);
+        // assert.equal(list.average(), 3.3);
+        assertCloseEnough(list.average(), 3.3)
     });
 
     it('pushing a list of 10,000 numbers and calculating sum/ave should run within milliseconds', function () {
-        this.timeout(100);
+        this.timeout(1000);
 
-        var testsize = 10000;
+        var testsize = 1000000;
         var list = new NumericList();
 
         for (var i = 1; i <= testsize; i++) {
@@ -158,5 +159,9 @@ describe('numeric list', function () {
         assert.equal(list.sum(), expected.sum, "sum");
         assert.equal(list.average(), expected.average, "ave");
     });
+
+    function assertCloseEnough(actual, expected) {
+        assert.equal(actual.toFixed(2), expected.toFixed(2));
+    }
 
 });
