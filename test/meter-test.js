@@ -14,5 +14,12 @@ describe('meter', function () {
         assert.ok(meter);
     });
 
+    it('record once and get count should return 1', function () {
+        var meter;
+        meter = new Meter();
+        meter.record();
+        assert.equal(meter.getCount(), 1);
+    });
+
 
 });
