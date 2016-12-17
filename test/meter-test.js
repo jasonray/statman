@@ -49,7 +49,10 @@ describe('meter', function () {
         meter = new Meter();
         meter.record(2.2);
         meter.record(4.4);
-        assert.equal(meter.getAverage(), 3.3);
+        assertCloseEnough(meter.getAverage(), 3.3);
     });
 
+    function assertCloseEnough(actual, expected) {
+        assert.equal(actual.toFixed(2), expected.toFixed(2));
+    }
 });
