@@ -11,6 +11,27 @@ describe('numeric list', function () {
         assert.ok(list);
     });
 
+    it('given an empty list, size should return 0', function () {
+        var list = new NumericList();
+        assert.equal(list.size(), 0);
+    });
+
+    it('given a list of one, size should return 1', function () {
+        var list = new NumericList();
+        list.push(0);
+        assert.equal(list.size(), 1);
+    });
+
+    it('given a list of five, size should return 5', function () {
+        var list = new NumericList();
+        list.push(0);
+        list.push(0);
+        list.push(0);
+        list.push(0);
+        list.push(0);
+        assert.equal(list.size(), 5);
+    });
+
     it('given an empty list, sum should return 0', function () {
         var list = new NumericList();
         assert.equal(list.sum(), 0);
