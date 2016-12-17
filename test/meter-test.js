@@ -20,6 +20,7 @@ describe('meter', function () {
         meter.record();
         assert.equal(meter.getCount(), 1);
     });
+
     it('record twice and get count should return 2', function () {
         var meter;
         meter = new Meter();
