@@ -4,6 +4,8 @@
 var Meter = require('../lib/metric/Meter');
 var mocha = require('mocha');
 var assert = require('assert');
+var StopWatch = require('../lib/metric/Stopwatch');
+var _ = require('underscore');
 
 describe('meter', function () {
     this.timeout(5000);
@@ -52,7 +54,36 @@ describe('meter', function () {
         assertCloseEnough(meter.getAverage(), 3.3);
     });
 
-    function assertCloseEnough(actual, expected) {
-        assert.equal(actual.toFixed(2), expected.toFixed(2));
+    it('given record using stopwatch, average should still return averages', function (done) {
+        var meter = new Meter();
+        var sw1 = new StopWatch();
+        sw1.start();
+        setTimeout(function () {
+            sw1.stop();
+            console.log('about to record %s', sw1);
+            meter.record(sw1);
+        }, 200);
+
+        var sw2 = new StopWatch();
+        sw2.start();
+        setTimeout(function () {
+            sw2.stop();
+            console.log('about to record %s', sw2);
+            meter.record(sw2);
+        }, 400);
+
+        setTimeout(function () {
+            assertCloseEnough(meter.getCount(), 2);
+            assertCloseEnough(meter.getAverage(), 300);
+            done();
+        }, 500);
+    });
+
+    function assertCloseEnough(actual, expected, acceptedVariance) {
+        if (_.isEmpty(acceptedVariance)) acceptedVariance = 10;
+        var lowerThreshold = expected - acceptedVariance;
+        var upperThreshold = expected + acceptedVariance;
+        var message = "Expected " + expected + " ± " + acceptedVariance + ", was " + actual + ".";
+        assert.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
     }
 });
