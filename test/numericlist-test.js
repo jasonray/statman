@@ -90,8 +90,27 @@ describe('numeric list', function () {
         assert.equal(list.average(), 3);
     });
 
-    it('given a list of one decimal number, average should return the number')
-    it('given a list of two decimal numbers, sum should return the average of the numbers')
-    it('given a list of five decimal numbers, sum should return the average of the numbers')
+    it('given a list of one decimal number, average should return the number', function () {
+        var list = new NumericList();
+        list.push(3.3);
+        assert.equal(list.average(), 3.3);
+    });
+
+    it('given a list of two decimal numbers, sum should return the average of the numbers', function () {
+        var list = new NumericList();
+        list.push(2.2);
+        list.push(4.4);
+        assert.equal(list.average(), 3.3);
+    });
+
+    it('given a list of five decimal numbers, sum should return the average of the numbers', function () {
+        var list = new NumericList();
+        list.push(1.1);
+        list.push(2.2);
+        list.push(3.3);
+        list.push(4.4);
+        list.push(5.5);
+        assert.equal(list.average(), 3.3);
+    });
 
 });
