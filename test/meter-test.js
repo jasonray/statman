@@ -36,4 +36,12 @@ describe('meter', function () {
         assert.equal(meter.getAverage(), 5);
     });
 
+    it('if record contains numbers, provide this number in average', function () {
+        var meter;
+        meter = new Meter();
+        meter.record(2);
+        meter.record(4);
+        assert.equal(meter.getAverage(), 3);
+    });
+
 });
