@@ -5,6 +5,7 @@ var Stopwatch = require('../lib/metric/Stopwatch');
 var defaultPrecision = 15;
 var mocha = require('mocha');
 var assert = require('assert');
+var TestHelper = require('./testhelper');
 
 describe('stopwatch', function () {
     this.timeout(5000);
@@ -23,7 +24,7 @@ describe('stopwatch', function () {
         stopwatch.start();
         setTimeout(function () {
             var delta = stopwatch.read();
-            verifyDelta(testtime, delta, defaultPrecision);
+            TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
             done();
         }, testtime);
     });
@@ -35,7 +36,7 @@ describe('stopwatch', function () {
         stopwatch.start();
         setTimeout(function () {
             var delta = stopwatch.read();
-            verifyDelta(testtime, delta, defaultPrecision);
+            TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
             done();
         }, testtime);
     });
@@ -46,7 +47,7 @@ describe('stopwatch', function () {
         var stopwatch = new Stopwatch(true);
         setTimeout(function () {
             var delta = stopwatch.read();
-            verifyDelta(testtime, delta, defaultPrecision);
+            TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
             done();
         }, testtime);
     });
@@ -72,7 +73,7 @@ describe('stopwatch', function () {
         var testtimeA = 300;
         setTimeout(function () {
             var delta1 = stopwatch1.read();
-            verifyDelta(testtimeA, delta1, defaultPrecision);
+            TestHelper.assertCloseEnough(testtimeA, delta1, defaultPrecision);
         }, testtimeA);
 
         //start second stopwatch .1s second after the first, then do a read .5s later
@@ -81,7 +82,7 @@ describe('stopwatch', function () {
             stopwatch2.start();
             setTimeout(function () {
                 var delta2 = stopwatch2.read();
-                verifyDelta(testtimeB, delta2, defaultPrecision);
+                TestHelper.assertCloseEnough(testtimeB, delta2, defaultPrecision);
                 done();
             }, testtimeB);
         }, 100);
@@ -97,7 +98,7 @@ describe('stopwatch', function () {
 
             setTimeout(function () {
                 var delta = stopwatch.read();
-                verifyDelta(testtime, delta, defaultPrecision);
+                TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
                 done();
             }, 500);
         }, testtime);
@@ -124,11 +125,11 @@ describe('stopwatch', function () {
             stopwatch.stop();
 
             setTimeout(function () {
-                verifyDelta(100 + 200, stopwatch.stop(), defaultPrecision);
+                TestHelper.assertCloseEnough(100 + 200, stopwatch.stop(), defaultPrecision);
 
                 setTimeout(function () {
                     var delta = stopwatch.read();
-                    verifyDelta(100 + 200, delta, defaultPrecision);
+                    TestHelper.assertCloseEnough(100 + 200, delta, defaultPrecision);
                     done();
                 }, 500);
             }, 200);
@@ -141,15 +142,9 @@ describe('stopwatch', function () {
         stopwatch.start();
         setTimeout(function () {
             var delta = stopwatch.stop();
-            verifyDelta(testtime, delta, defaultPrecision);
+            TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
             done();
         }, testtime);
     });
 });
 
-function verifyDelta(expected, actual, acceptedVariance) {
-    var lowerThreshold = expected - acceptedVariance;
-    var upperThreshold = expected + acceptedVariance;
-    var message = "Expected " + expected + " ± " + acceptedVariance + ", was " + actual + ".";
-    assert.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
-}
