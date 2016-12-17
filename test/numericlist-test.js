@@ -67,7 +67,12 @@ describe('numeric list', function () {
         assert.equal(list.average(), 0);
     });
 
-    it('given a list of one integer number, average should return the number')
+    it('given a list of one integer number, average should return the number', function () {
+        var list = new NumericList();
+        list.push(5);
+        assert.equal(list.average(), 5);
+    });
+
     it('given a list of two integer numbers, sum should return the average of the numbers')
     it('given a list of five integer numbers, sum should return the average of the numbers')
 
