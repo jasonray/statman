@@ -61,7 +61,6 @@ describe('meter', function () {
         sw1.start();
         setTimeout(function () {
             sw1.stop();
-            console.log('about to record %s', sw1);
             meter.record(sw1);
         }, 200);
 
@@ -69,7 +68,6 @@ describe('meter', function () {
         sw2.start();
         setTimeout(function () {
             sw2.stop();
-            console.log('about to record %s', sw2);
             meter.record(sw2);
         }, 400);
 
