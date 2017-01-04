@@ -149,4 +149,3 @@ clone source code to you local machine
 setup dependencies: `npm install`
 
 run tests: `npm test`
-
