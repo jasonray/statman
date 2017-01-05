@@ -4,6 +4,7 @@
 var Gauge = require('statman-gauge');
 var mocha = require('mocha');
 var assert = require('assert');
+var should = require('should');
 
 describe('gauge (smoke test)', function () {
     it('gauagename', function () {
@@ -42,6 +43,12 @@ describe('gauge (smoke test)', function () {
         var gauge = new Gauge('metric-name');
         gauge.set(5);
         assert.equal(5, gauge.value());
+    });
+
+    it('toString produces something with the value', function () {
+        var gauge = new Gauge('metric-name');
+        gauge.set(5);
+        gauge.toString().should.containEql(5);
     });
 
 });
