@@ -5,7 +5,7 @@ var Gauge = require('statman-gauge');
 var mocha = require('mocha');
 var assert = require('assert');
 
-describe('gauge smoke test', function () {
+describe('gauge (smoke test)', function () {
     it('gauagename', function () {
         var gauge = new Gauge('metric-name');
         assert.equal('metric-name', gauge.name());
