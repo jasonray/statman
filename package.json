@@ -18,11 +18,11 @@
   "dependencies": {
     "decimal": "0.0.2",
     "performance-now": "^0.2.0",
-    "should": "^11.1.2",
     "statman-gauge": "1.0.4",
     "underscore": "~1.6.0"
   },
   "devDependencies": {
+    "should": "^11.1.2",
     "mocha": "^3.2.0"
   },
   "keywords": [
