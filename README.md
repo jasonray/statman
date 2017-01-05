@@ -1,4 +1,4 @@
-# statman [![Build Status](https://travis-ci.org/jasonray/statman.svg?branch=master)](https://travis-ci.org/jasonray/statman)
+# statman [![Build Status](https://travis-ci.org/jasonray/statman.svg?branch=master)](https://travis-ci.org/jasonray/statman) [![on npm](http://img.shields.io/npm/v/statman.svg?style=flat)](https://www.npmjs.org/package/statman)
 
 Package to assist with collection of metrics
 
