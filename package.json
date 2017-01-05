@@ -23,8 +23,7 @@
     "underscore": "~1.6.0"
   },
   "devDependencies": {
-    "mocha": "^3.2.0",
-    "nodeunit": "~0.8.6"
+    "mocha": "^3.2.0"
   },
   "keywords": [
     "stopwatch",
