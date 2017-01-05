@@ -5,15 +5,10 @@ var Gauge = require('statman-gauge');
 var mocha = require('mocha');
 var assert = require('assert');
 
-describe('gauge', function () {
+describe('gauge smoke test', function () {
     it('gauagename', function () {
         var gauge = new Gauge('metric-name');
         assert.equal('metric-name', gauge.name());
-    });
-
-    it('initializesTo0', function () {
-        var gauge = new Gauge('metric-name');
-        assert.equal(0, gauge.value());
     });
 
     it('increment', function () {
@@ -31,8 +26,9 @@ describe('gauge', function () {
 
     it('decrement', function () {
         var gauge = new Gauge('metric-name');
+        gauge.set(10);
         gauge.decrement();
-        assert.equal(-1, gauge.value());
+        assert.equal(9, gauge.value());
     });
 
     it('decrementByValue', function () {
@@ -46,60 +42,6 @@ describe('gauge', function () {
         var gauge = new Gauge('metric-name');
         gauge.set(5);
         assert.equal(5, gauge.value());
-    });
-
-    function testSetWithInvalidInput(test, input) {
-        var gauge = new Gauge('metric-name');
-        assert.throws(function () {
-            gauge.set('str');
-        }, Error, "`set` should throw exception if passed non-numeric value");
-    }
-
-    it('setNotAllowString', function () {
-        var input = "str";
-        testSetWithInvalidInput(input);
-    });
-
-    it('setNotAllowNull', function () {
-        var input = null;
-        testSetWithInvalidInput(input);
-    });
-
-    it('setNotAllowUninitialized', function () {
-        var input;
-        testSetWithInvalidInput(input);
-    });
-
-    it('allowCustomValueFunction', function () {
-        var customValueFunction = function () {
-            return 5;
-        }
-
-        var gauge = new Gauge('metric-name', customValueFunction);
-        assert.equal(5, gauge.value());
-    });
-
-    it('disallowNonFunctionForCustomValueFunction', function () {
-        assert.throws(function () {
-            var gauge = new Gauge('metric-name', 5);
-        });
-    });
-
-    it('twoGauage', function () {
-        var gaugeA = new Gauge('metric-name');
-        gaugeA.set(5);
-        gaugeA.increment();
-        gaugeA.increment();
-        gaugeA.decrement();
-
-        var gaugeB = new Gauge('metric-name');
-        gaugeB.set(10);
-        gaugeB.increment();
-        gaugeB.decrement();
-        gaugeB.decrement();
-
-        assert.equal(6, gaugeA.value());
-        assert.equal(9, gaugeB.value());
     });
 
 });
