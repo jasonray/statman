@@ -2,6 +2,12 @@
 
 Package to assist with collection of metrics
 
+# Supported metrics
+
+Gauge.js
+Meter.js
+Stopwatch.js - used for recording times
+
 # Use it!
 Install using npm:
 ```
@@ -143,4 +149,3 @@ clone source code to you local machine
 setup dependencies: `npm install`
 
 run tests: `npm test`
-
