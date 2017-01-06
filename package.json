@@ -1,6 +1,6 @@
 {
   "name": "statman",
-  "version": "0.9.6",
+  "version": "0.10.0",
   "description": "Package to assist with collection of metrics, including stopwatch functionality",
   "main": "./lib/metrics.js",
   "scripts": {
@@ -18,11 +18,12 @@
   "dependencies": {
     "decimal": "0.0.2",
     "performance-now": "^0.2.0",
-    "should": "^11.1.2",
     "statman-gauge": "1.0.4",
+    "statman-meter": "1.0.2",
     "underscore": "~1.6.0"
   },
   "devDependencies": {
+    "should": "^11.1.2",
     "mocha": "^3.2.0"
   },
   "keywords": [

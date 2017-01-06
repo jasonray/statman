@@ -2,7 +2,7 @@
 "use strict";
 
 var Stopwatch = require('../lib/metric/Stopwatch');
-var defaultPrecision = 15;
+var defaultPrecision = 20;
 var mocha = require('mocha');
 var assert = require('assert');
 var TestHelper = require('./testhelper');
