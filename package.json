@@ -19,7 +19,7 @@
     "decimal": "0.0.2",
     "performance-now": "^0.2.0",
     "statman-gauge": "1.0.4",
-    "statman-meter": "^1.0.0",
+    "statman-meter": "1.0.0",
     "underscore": "~1.6.0"
   },
   "devDependencies": {
