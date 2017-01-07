@@ -24,14 +24,12 @@ describe.only('registry', function () {
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
-        console.log('reg:');
-        console.log(statman.registry());
         statman.registry('metricA').should.equal(metricA);
         statman.registry('metricB').should.equal(metricB);
         statman.registry('metric-C').should.equal(metricC);
     });
 
-    it.skip('registering metric with same name overwrites the first', function () {
+    it('registering metric with same name overwrites the first', function () {
         var metricA = {
             name: function () {
                 return 'metric-a'
