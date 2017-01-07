@@ -2,7 +2,6 @@
 "use strict";
 
 var statman = require('../lib/statman');
-var assert = require('assert');
 var should = require('should');
 var StopWatch = require('../lib/metric/Stopwatch');
 var TestHelper = require('./testhelper');
