@@ -110,8 +110,8 @@ describe.only('registry', function () {
     });
 
     it('cannot register gauge without name', function () {
-        assert.throws( function() {
-                statman.register({value: 1});
+        assert.throws(function () {
+            statman.register({value: 1});
         })
     });
 
