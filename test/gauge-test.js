@@ -1,7 +1,6 @@
 /*jslint node: true */
 "use strict";
 
-var Gauge = require('statman-gauge');
 var mocha = require('mocha');
 var assert = require('assert');
 var should = require('should');
