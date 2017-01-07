@@ -4,7 +4,7 @@ var should = require('should');
 
 describe('registry', function () {
 
-    it.skip('get new instance of a gauge', function () {
+    it('get new instance of a gauge', function () {
         var gauge =  statman.gauge('metric-name');
         gauge.name().should.equal('metric-name');
     });
