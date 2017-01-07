@@ -5,15 +5,13 @@ var should = require('should');
 describe('registry', function () {
 
     it.skip('get new instance of a gauge', function () {
-        var gauge =  statman.Gauge('metric-name');
+        var gauge =  statman.gauge('metric-name');
         gauge.name().should.equal('metric-name');
     });
 
     it.skip('retrieve gauge from registry', function () {
-        var gauge = new statman.Gauge('metric-name');
-        metrics.register(gauge);
-        var retrievedGauge = metrics.registry('metric-name');
-        assert.equal('metric-name', gauge.name());
+        statman.gauge('metric-name').set(5);
+        statman.gauge('metric-name').value().should.equal(5);
     });
 
     it.skip('modifyValueOfGauge', function () {
