@@ -10,14 +10,14 @@ describe('registry', function () {
     });
 
     it.skip('retrieve gauge from registry', function () {
-        var gauge = new metrics.Gauge('metric-name');
+        var gauge = new statman.Gauge('metric-name');
         metrics.register(gauge);
         var retrievedGauge = metrics.registry('metric-name');
         assert.equal('metric-name', gauge.name());
     });
 
     it.skip('modifyValueOfGauge', function () {
-        var gauge = new metrics.Gauge('a');
+        var gauge = new statman.Gauge('a');
         metrics.register(gauge);
 
         metrics.registry('a').set(5);
@@ -30,7 +30,7 @@ describe('registry', function () {
     });
 
     it.skip('autoregister', function () {
-        var gauge = metrics.gauges('auto');
+        var gauge = statman.gauges('auto');
 
         assert.equal('auto', gauge.name());
         gauge.increment();
