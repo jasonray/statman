@@ -32,5 +32,14 @@ describe.only('registry', function () {
         statman.gauge('a').value().should.be.equal(0);
     });
 
+    it('registering metric with same name overwrites the first')
+
+    it('registry returns full list')
+
+    it('registry returns single item')
+
+    it('cannot register gauge without name')
+
+
 
 });
