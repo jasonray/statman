@@ -153,7 +153,7 @@ describe('registry', function () {
         });
     });
 
-    describe.only('meter in registry', function () {
+    describe('meter in registry', function () {
         it('get new instance of a meter', function () {
             var meter = statman.meter('metric-name');
             meter.name().should.equal('metric-name');
