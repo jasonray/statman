@@ -19,7 +19,7 @@ describe.only('registry', function () {
         statman.registry().length.should.equal(3);
     });
 
-    it.only('registry returns single item', function () {
+    it('registry returns single item', function () {
         var metricA = {name: 'metricA'};
         var metricB = {name: 'metricB'};
         var metricC = {name: 'metric-C'};
