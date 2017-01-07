@@ -13,8 +13,16 @@ describe.only('registry', function () {
     });
 
     it('registry returns single item', function() {
-        var metricA = {getName: function() {return 'metric-a'}};
-        var metricB = {getName: function() {return 'metric-b'}};
+        var metricA = {name: function() {return 'metric-a'}};
+        var metricB = {name: function() {return 'metric-b'}};
+        statman.register(metricA);
+        statman.register(metricB);
+        statman.registry('metric-a').should.be.equal(metricA);
+    });
+
+    it('registering metric with same name overwrites the first', function () {
+        var metricA = {name: function() {return 'metric-a'}};
+        var metricB = {name: function() {return 'metric-a'}};
         statman.register(metricA);
         statman.register(metricB);
         statman.registry('metric-a').should.be.equal(metricA);
@@ -28,7 +36,7 @@ describe.only('registry', function () {
         statman.gauge('a').value().should.be.equal(0);
     });
 
-    describe.only('gauge', function () {
+    describe('gauge', function () {
         it('get new instance of a gauge', function () {
             var gauge = statman.gauge('metric-name');
             gauge.name().should.equal('metric-name');
@@ -49,7 +57,6 @@ describe.only('registry', function () {
             statman.gauge('metric-name-2').value().should.equal(4);
         });
 
-        it('registering metric with same name overwrites the first')
 
         it('cannot register gauge without name')
     });
