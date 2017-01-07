@@ -8,7 +8,7 @@ var statman = require('../lib/statman');
 var TestHelper = require('./testhelper');
 
 describe('stopwatch (smoke test)', function () {
-    it.skip('explicit constructor', function () {
+    it('explicit constructor', function () {
         var stopwatch = new statman.Stopwatch('metric-name');
         should.exists(stopwatch);
     });
