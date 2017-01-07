@@ -84,3 +84,12 @@ TODO: how to build a new metric
 - Clone source code to you local machine
 - Setup dependencies: `npm install`
 - run tests: `npm test`
+
+# Roadmap
+* Add meter
+* Move stopwatch back to its own repo.  Sigh.
+* Create reporters to output metrics
+* Provide guidance how to hook with HTTP/TCP/async calls
+* Provide hook to register with express
+* Integrate with visualizations
+* Provide web interface to access metrics
