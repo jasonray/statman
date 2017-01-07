@@ -3,7 +3,6 @@
 
 var statman = require('../lib/statman');
 var defaultPrecision = 20;
-var mocha = require('mocha');
 var assert = require('assert');
 var TestHelper = require('./testhelper');
 
