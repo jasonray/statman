@@ -7,15 +7,13 @@ describe.only('registry', function () {
         statman.reset();
     });
 
-    it.only('registry returns full list', function () {
+    it('registry returns full list', function () {
         var metricA = {name: 'metricA'};
         var metricB = {name: 'metricB'};
         var metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
-        console.log('reg:');
-        console.log(statman.registry());
         statman.registry().length.should.equal(3);
     });
 
