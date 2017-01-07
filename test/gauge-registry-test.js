@@ -12,7 +12,13 @@ describe.only('registry', function () {
         statman.registry().length.should.be.equal(2);
     });
 
-    it('registry returns single item')
+    it('registry returns single item', function() {
+        var metricA = {getName: function() {return 'metric-a'}};
+        var metricB = {getName: function() {return 'metric-b'}};
+        statman.register(metricA);
+        statman.register(metricB);
+        statman.registry('metric-a').should.be.equal(metricA);
+    });
 
     it('reset', function () {
         statman.gauge('a').value().should.be.equal(0);
