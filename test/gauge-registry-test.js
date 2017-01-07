@@ -31,7 +31,29 @@ describe.only('registry', function () {
 
     it('registry can have key passed explicitly', function () {
         var metric = {value: 'abc'};
+
+        var metricA = {name: 'metricA'};
+        var metricB = {name: 'metricB'};
+        var metricC = {name: 'metric-C'};
+        statman.register(metricA);
+        statman.register(metricB);
+        statman.register(metricC);
+
         statman.register('x', metric);
+        statman.registry('x').should.equal(metric);
+    });
+
+    it('registry can have key discovered from name', function () {
+        var metric = {name: 'x'};
+
+        var metricA = {name: 'metricA'};
+        var metricB = {name: 'metricB'};
+        var metricC = {name: 'metric-C'};
+        statman.register(metricA);
+        statman.register(metricB);
+        statman.register(metricC);
+
+        statman.register(metric);
         statman.registry('x').should.equal(metric);
     });
 
