@@ -109,6 +109,13 @@ describe.only('registry', function () {
         statman.registry('metric-a').should.be.equal(metricB);
     });
 
+    it('cannot register gauge without name', function () {
+        assert.throws( function() {
+                statman.register({value: 1});
+        })
+    });
+
+
     it('reset', function () {
         statman.gauge('a').value().should.be.equal(0);
         statman.gauge('a').set(10);
@@ -144,9 +151,6 @@ describe.only('registry', function () {
             statman.gauge('metric-name-1').value().should.equal(51);
             statman.gauge('metric-name-2').value().should.equal(4);
         });
-
-
-        it('cannot register gauge without name')
     });
 
 
