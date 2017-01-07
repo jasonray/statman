@@ -75,6 +75,24 @@ describe.only('registry', function () {
         statman.registry('x').should.equal(metric);
     });
 
+    it('registry can have key discovered from getName()', function () {
+        var metric = {
+            getName: function () {
+                return 'x'
+            }
+        };
+
+        var metricA = {name: 'metricA'};
+        var metricB = {name: 'metricB'};
+        var metricC = {name: 'metric-C'};
+        statman.register(metricA);
+        statman.register(metricB);
+        statman.register(metricC);
+
+        statman.register(metric);
+        statman.registry('x').should.equal(metric);
+    });
+
     it('registering metric with same name overwrites the first', function () {
         var metricA = {
             name: function () {
