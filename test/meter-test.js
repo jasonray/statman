@@ -20,7 +20,7 @@ describe('meter smoketest', function () {
         var meter;
         meter = new statman.Meter();
         meter.record();
-        assert.equal(meter.getCount(), 1);
+        meter.getCount().should.be.equal(1);
     });
 
     it('record and read', function () {
