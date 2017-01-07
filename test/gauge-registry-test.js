@@ -9,7 +9,7 @@ describe('registry', function () {
         gauge.name().should.equal('metric-name');
     });
 
-    it.skip('retrieve gauge from registry', function () {
+    it('retrieve gauge from registry', function () {
         statman.gauge('metric-name').set(5);
         statman.gauge('metric-name').value().should.equal(5);
     });
