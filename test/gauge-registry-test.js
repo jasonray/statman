@@ -7,7 +7,7 @@ describe.only('registry', function () {
         statman.reset();
     });
 
-    it('registry returns full list', function () {
+    it.only('registry returns full list', function () {
         var metricA = {name: 'metricA'};
         var metricB = {name: 'metricB'};
         var metricC = {name: 'metric-C'};
