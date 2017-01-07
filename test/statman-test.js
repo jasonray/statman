@@ -159,7 +159,7 @@ describe('registry', function () {
             meter.name().should.equal('metric-name');
         });
 
-        it.skip('explicit register meter', function () {
+        it('explicit register meter', function () {
             var meter = new statman.Meter('metric-name');
             should.not.exist(statman.registry('metric-name'));
             statman.register(meter);
