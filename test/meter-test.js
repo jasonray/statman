@@ -2,8 +2,8 @@
 "use strict";
 
 var statman = require('../lib/statman');
-var mocha = require('mocha');
 var assert = require('assert');
+var should = require('should');
 var StopWatch = require('../lib/metric/Stopwatch');
 var TestHelper = require('./testhelper');
 
