@@ -166,9 +166,10 @@ describe('registry', function () {
             should.exist(statman.registry('metric-name'));
         });
 
-        it.skip('retrieve meter from registry', function () {
-            statman.meter('metric-name').set(5);
-            statman.meter('metric-name').value().should.equal(5);
+        it('retrieve meter from registry', function () {
+            statman.meter('metric-name').getCount().should.equal(0);
+            statman.meter('metric-name').record()
+            statman.meter('metric-name').getCount().should.equal(1);
         });
 
         it.skip('two gauges from registry', function () {
