@@ -5,7 +5,7 @@ var should = require('should');
 describe('registry', function () {
 
     it.skip('get new instance of a gauge', function () {
-        var gauge =  metrics.Gauge('metric-name');
+        var gauge =  statman.Gauge('metric-name');
         gauge.name().should.equal('metric-name');
     });
 
