@@ -2,7 +2,7 @@ var statman = require('../lib/statman');
 var assert = require('assert');
 var should = require('should');
 
-describe.only('registry', function () {
+describe('registry', function () {
     beforeEach(function () {
         statman.reset();
     });

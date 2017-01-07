@@ -1,6 +1,6 @@
 {
   "name": "statman",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Package to assist with collection of metrics, including stopwatch functionality",
   "main": "./lib/metrics.js",
   "scripts": {
@@ -16,11 +16,10 @@
     "url": "https://github.com/jasonray/statman/issues"
   },
   "dependencies": {
-    "decimal": "0.0.2",
-    "performance-now": "^0.2.0",
-    "statman-gauge": "1.0.4",
+    "performance-now": "^1.0.1",
+    "statman-gauge": "^1.0.5",
     "statman-meter": "1.0.2",
-    "underscore": "~1.6.0"
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "should": "^11.1.2",
