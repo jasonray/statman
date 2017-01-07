@@ -123,6 +123,12 @@ describe.only('registry', function () {
             gauge.name().should.equal('metric-name');
         });
 
+        it('explicit register gauge', function () {
+            var gauge =new statman.Gauge('metric-name');
+         should.not.exist  ( statman.registry('metric-name') );
+            gauge.name().should.equal('metric-name');
+        });
+
         it('retrieve gauge from registry', function () {
             statman.gauge('metric-name').set(5);
             statman.gauge('metric-name').value().should.equal(5);
