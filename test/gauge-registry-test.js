@@ -30,7 +30,7 @@ describe.only('registry', function () {
     });
 
     it('registry can have key passed explicitly', function () {
-        var metric = {value:'abc'};
+        var metric = {value: 'abc'};
         statman.register('x', metric);
         statman.registry('x').should.equal(metric);
     });
