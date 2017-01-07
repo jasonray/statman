@@ -3,6 +3,9 @@ var assert = require('assert');
 var should = require('should');
 
 describe.only('registry', function () {
+    beforeEach(function () {
+        statman.reset();
+    });
 
     it('registry returns full list', function () {
         var metricA = {};
@@ -12,20 +15,36 @@ describe.only('registry', function () {
         statman.registry().length.should.be.equal(2);
     });
 
-    it('registry returns single item', function() {
-        var metricA = {name: function() {return 'metric-a'}};
-        var metricB = {name: function() {return 'metric-b'}};
+    it('registry returns single item', function () {
+        var metricA = {
+            name: function () {
+                return 'metric-a'
+            }
+        };
+        var metricB = {
+            name: function () {
+                return 'metric-b'
+            }
+        };
         statman.register(metricA);
         statman.register(metricB);
         statman.registry('metric-a').should.be.equal(metricA);
     });
 
-    it('registering metric with same name overwrites the first', function () {
-        var metricA = {name: function() {return 'metric-a'}};
-        var metricB = {name: function() {return 'metric-a'}};
+    it.skip('registering metric with same name overwrites the first', function () {
+        var metricA = {
+            name: function () {
+                return 'metric-a'
+            }, value: 1
+        };
+        var metricB = {
+            name: function () {
+                return 'metric-a'
+            }, value: 2
+        };
         statman.register(metricA);
         statman.register(metricB);
-        statman.registry('metric-a').should.be.equal(metricA);
+        statman.registry('metric-a').should.be.equal(metricB);
     });
 
     it('reset', function () {
@@ -60,10 +79,6 @@ describe.only('registry', function () {
 
         it('cannot register gauge without name')
     });
-
-
-
-
 
 
 });
