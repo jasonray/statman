@@ -5,6 +5,7 @@ var Gauge = require('statman-gauge');
 var mocha = require('mocha');
 var assert = require('assert');
 var should = require('should');
+var statman = require('../lib/statman');
 
 describe('gauge (smoke test)', function () {
     it('gauagename', function () {
