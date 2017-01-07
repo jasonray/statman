@@ -172,14 +172,14 @@ describe('registry', function () {
             statman.meter('metric-name').getCount().should.equal(1);
         });
 
-        it.skip('two gauges from registry', function () {
-            statman.meter('metric-name-1').set(50);
-            statman.meter('metric-name-2').set(5);
-            statman.meter('metric-name-1').increment();
-            statman.meter('metric-name-2').decrement();
+        it('two gauges from registry', function () {
+            statman.meter('metric-name-1').record(50);
+            statman.meter('metric-name-2').record(5);
+            statman.meter('metric-name-1').record(100);
+            statman.meter('metric-name-2').record(10);
 
-            statman.meter('metric-name-1').value().should.equal(51);
-            statman.meter('metric-name-2').value().should.equal(4);
+            statman.meter('metric-name-1').getAverage().should.equal(75);
+            statman.meter('metric-name-2').getAverage().should.equal(7.5);
         });
     });
 
