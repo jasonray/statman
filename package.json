@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "performance-now": "^1.0.1",
-    "statman-gauge": "1.0.4",
+    "statman-gauge": "^1.0.5",
     "statman-meter": "1.0.2",
     "underscore": "^1.8.3"
   },
