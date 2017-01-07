@@ -20,7 +20,7 @@ describe('stopwatch', function () {
     it('start and read (100ms)', function (done) {
         var testtime = 100;
 
-var         stopwatch = new statman.Stopwatch();
+        var stopwatch = new statman.Stopwatch();
         stopwatch.start();
         setTimeout(function () {
             var delta = stopwatch.read();
@@ -32,7 +32,7 @@ var         stopwatch = new statman.Stopwatch();
     it('start and read (10ms)', function (done) {
         var testtime = 10;
 
-        var         stopwatch = new statman.Stopwatch();
+        var stopwatch = new statman.Stopwatch();
         stopwatch.start();
         setTimeout(function () {
             var delta = stopwatch.read();
@@ -44,7 +44,7 @@ var         stopwatch = new statman.Stopwatch();
     it('autostart set to true automatically starts stopwatch', function (done) {
         var testtime = 10;
 
-        var         stopwatch = new statman.Stopwatch(true);
+        var stopwatch = new statman.Stopwatch(true);
         setTimeout(function () {
             var delta = stopwatch.read();
             TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
@@ -55,7 +55,7 @@ var         stopwatch = new statman.Stopwatch();
     it('autostart set to false does NOT automatically start stopwatch', function (done) {
         var testtime = 10;
 
-        var         stopwatch = new statman.Stopwatch(false);
+        var stopwatch = new statman.Stopwatch(false);
         setTimeout(function () {
             var delta = stopwatch.read();
             assert.ok(isNaN(delta));
@@ -64,8 +64,8 @@ var         stopwatch = new statman.Stopwatch();
     });
 
     it('with two stopwatches, do independent reads of each', function (done) {
-        var         stopwatch1 = new statman.Stopwatch();
-        var         stopwatch2 = new statman.Stopwatch();
+        var stopwatch1 = new statman.Stopwatch();
+        var stopwatch2 = new statman.Stopwatch();
 
         stopwatch1.start();
 
@@ -91,7 +91,7 @@ var         stopwatch = new statman.Stopwatch();
     it('start, stop, and read should return the time at stop', function (done) {
         var testtime = 100;
 
-        var         stopwatch = new statman.Stopwatch();
+        var stopwatch = new statman.Stopwatch();
         stopwatch.start();
         setTimeout(function () {
             stopwatch.stop();
@@ -105,13 +105,13 @@ var         stopwatch = new statman.Stopwatch();
     });
 
     it('performing read without start() or stop() returns NaN', function (done) {
-        var         stopwatch = new statman.Stopwatch();
+        var stopwatch = new statman.Stopwatch();
         assert.ok(isNaN(stopwatch.read()));
         done();
     });
 
     it('performing read without start() returns NaN', function (done) {
-        var         stopwatch = new statman.Stopwatch();
+        var stopwatch = new statman.Stopwatch();
         stopwatch.stop();
         assert.ok(isNaN(stopwatch.read()));
         done();
@@ -119,7 +119,7 @@ var         stopwatch = new statman.Stopwatch();
 
     it('executing stop twice should return time at second stop', function (done) {
         //start(), wait .1s, stop(), wait .2s, stop(), wait .5s, read(), ensure delta = .3s
-        var         stopwatch = new statman.Stopwatch();
+        var stopwatch = new statman.Stopwatch();
         stopwatch.start();
         setTimeout(function () {
             stopwatch.stop();
@@ -138,7 +138,7 @@ var         stopwatch = new statman.Stopwatch();
 
     it('ensure that stop() returns time', function (done) {
         var testtime = 100;
-        var         stopwatch = new statman.Stopwatch();
+        var stopwatch = new statman.Stopwatch();
         stopwatch.start();
         setTimeout(function () {
             var delta = stopwatch.stop();
