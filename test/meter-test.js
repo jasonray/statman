@@ -1,7 +1,7 @@
 /*jslint node: true */
 "use strict";
 
-var metrics = require('../lib/statman');
+var statman = require('../lib/statman');
 var mocha = require('mocha');
 var assert = require('assert');
 var StopWatch = require('../lib/metric/Stopwatch');
@@ -13,20 +13,20 @@ describe('meter smoketest', function () {
 
     it('init should return an instance of meter', function () {
         var meter;
-        meter = new metrics.Meter();
+        meter = new statman.Meter();
         assert.ok(meter);
     });
 
     it('record once and get count should return 1', function () {
         var meter;
-        meter = new metrics.Meter();
+        meter = new statman.Meter();
         meter.record();
         assert.equal(meter.getCount(), 1);
     });
 
     it('record and read', function () {
         var meter;
-        meter = new metrics.Meter();
+        meter = new statman.Meter();
         meter.record(1000);
         meter.record(2000);
         meter.getAverage().should.equal(1500);
@@ -34,7 +34,7 @@ describe('meter smoketest', function () {
     });
 
     it('meter.start() provides an event, which can be used to auto record meter', function (done) {
-        var meter = new metrics.Meter();
+        var meter = new statman.Meter();
 
         var meterEvent = meter.startEvent();
         setTimeout(function () {
@@ -49,7 +49,7 @@ describe('meter smoketest', function () {
 
     it('toString()', function () {
         var meter;
-        meter = new metrics.Meter();
+        meter = new statman.Meter();
         meter.record(2.2);
         meter.record(4.4);
         meter.toString().should.equal('[count:2; average:3.30]');
