@@ -5,7 +5,6 @@ var statman = require('../lib/statman');
 var mocha = require('mocha');
 var assert = require('assert');
 var StopWatch = require('../lib/metric/Stopwatch');
-var _ = require('underscore');
 var TestHelper = require('./testhelper');
 
 describe('meter smoketest', function () {
