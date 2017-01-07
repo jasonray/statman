@@ -33,7 +33,7 @@ describe('meter smoketest', function () {
         meter.getCount().should.equal(2);
     });
 
-    it('meter.start() provides and event, which can be used to auto record meter', function (done) {
+    it('meter.start() provides an event, which can be used to auto record meter', function (done) {
         var meter = new metrics.Meter();
 
         var meterEvent = meter.startEvent();
