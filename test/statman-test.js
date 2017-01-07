@@ -124,7 +124,7 @@ describe('registry', function () {
         statman.gauge('a').value().should.be.equal(0);
     });
 
-    describe('gauge', function () {
+    describe('gauge in registry', function () {
         it('get new instance of a gauge', function () {
             var gauge = statman.gauge('metric-name');
             gauge.name().should.equal('metric-name');
@@ -150,6 +150,36 @@ describe('registry', function () {
 
             statman.gauge('metric-name-1').value().should.equal(51);
             statman.gauge('metric-name-2').value().should.equal(4);
+        });
+    });
+
+    describe('meter in registry', function () {
+        it('get new instance of a meter', function () {
+            var meter = statman.meter('metric-name');
+            meter.name().should.equal('metric-name');
+        });
+
+        it('explicit register meter', function () {
+            var meter = new statman.Meter('metric-name');
+            should.not.exist(statman.registry('metric-name'));
+            statman.register(meter);
+            should.exist(statman.registry('metric-name'));
+        });
+
+        it('retrieve meter from registry', function () {
+            statman.meter('metric-name').getCount().should.equal(0);
+            statman.meter('metric-name').record()
+            statman.meter('metric-name').getCount().should.equal(1);
+        });
+
+        it('two gauges from registry', function () {
+            statman.meter('metric-name-1').record(50);
+            statman.meter('metric-name-2').record(5);
+            statman.meter('metric-name-1').record(100);
+            statman.meter('metric-name-2').record(10);
+
+            statman.meter('metric-name-1').getAverage().should.equal(75);
+            statman.meter('metric-name-2').getAverage().should.equal(7.5);
         });
     });
 
