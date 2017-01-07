@@ -1,4 +1,4 @@
-var metrics = require('../lib/metrics');
+var metrics = require('../lib/statman');
 var assert = require('assert');
 
 describe('registry', function () {
