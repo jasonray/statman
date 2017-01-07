@@ -6,7 +6,7 @@ var should = require('should');
 var StopWatch = require('../lib/metric/Stopwatch');
 var TestHelper = require('./testhelper');
 
-describe('meter smoketest', function () {
+describe('meter (smoke test)', function () {
     this.timeout(5000);
 
     it('init should return an instance of meter', function () {
