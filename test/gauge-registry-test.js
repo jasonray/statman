@@ -8,11 +8,17 @@ describe.only('registry', function () {
     });
 
     it('registry returns full list', function () {
-        var metricA = {name: 'metric-a'};
-        var metricB = {name: 'metric-b'};
+        var metricA = {name: 'metricA'};
+        var metricB = {name: 'metricB'};
+        var metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
-        statman.registry().length.should.be.equal(2);
+        statman.register(metricC);
+        console.log('reg:');
+        console.log(statman.registry());
+        statman.registry().get('metricA').should.equal(metricA);
+        statman.registry().get('metricB').should.equal(metricB);
+        statman.registry().get('metric-C').should.equal(metricC);
     });
 
     it('registry returns single item', function () {
@@ -20,7 +26,7 @@ describe.only('registry', function () {
         var metricB = {name: 'metric-b'};
         statman.register(metricA);
         statman.register(metricB);
-        statman.registry('metric-a').should.be.equal(metricA);
+        statman.registry('metric-C').should.be.equal(metricA);
     });
 
     it.skip('registering metric with same name overwrites the first', function () {
