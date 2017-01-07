@@ -124,8 +124,8 @@ describe.only('registry', function () {
         });
 
         it('explicit register gauge', function () {
-            var gauge =new statman.Gauge('metric-name');
-         should.not.exist  ( statman.registry('metric-name') );
+            var gauge = new statman.Gauge('metric-name');
+            should.not.exist(statman.registry('metric-name'));
             gauge.name().should.equal('metric-name');
         });
 
