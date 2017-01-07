@@ -14,29 +14,14 @@ describe('registry', function () {
         statman.gauge('metric-name').value().should.equal(5);
     });
 
-    it.skip('modifyValueOfGauge', function () {
-        var gauge = new statman.Gauge('a');
-        metrics.register(gauge);
+    it.skip('two gauges from registry', function () {
+        statman.gauge('metric-name-1').set(50);
+        statman.gauge('metric-name-2').set(5);
+        statman.gauge('metric-name-1').increment();
+        statman.gauge('metric-name-2').decrement();
 
-        metrics.registry('a').set(5);
-        metrics.registry('a').increment();
-        metrics.registry('a').increment();
-        metrics.registry('a').decrement(3);
-        metrics.registry('a').increment(7);
-
-        assert.equal(11, metrics.registry('a').value());
-    });
-
-    it.skip('autoregister', function () {
-        var gauge = statman.gauges('auto');
-
-        assert.equal('auto', gauge.name());
-        gauge.increment();
-        assert.equal(1, gauge.value());
-
-        gauge2 = metrics.gauges('auto');
-        assert.equal('auto', gauge2.name());
-        assert.equal(1, gauge2.value());
+        statman.gauge('metric-name-1').value().should.equal(51);
+        statman.gauge('metric-name-2').value().should.equal(4);
     });
 
 });
