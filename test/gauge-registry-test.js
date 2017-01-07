@@ -4,25 +4,15 @@ var should = require('should');
 
 describe.only('registry', function () {
 
-    it('get new instance of a gauge', function () {
-        var gauge = statman.gauge('metric-name');
-        gauge.name().should.equal('metric-name');
+    it('registry returns full list', function () {
+        var metricA = {};
+        var metricB = {};
+        statman.register(metricA);
+        statman.register(metricB);
+        statman.registry().length.should.be.equal(2);
     });
 
-    it('retrieve gauge from registry', function () {
-        statman.gauge('metric-name').set(5);
-        statman.gauge('metric-name').value().should.equal(5);
-    });
-
-    it('two gauges from registry', function () {
-        statman.gauge('metric-name-1').set(50);
-        statman.gauge('metric-name-2').set(5);
-        statman.gauge('metric-name-1').increment();
-        statman.gauge('metric-name-2').decrement();
-
-        statman.gauge('metric-name-1').value().should.equal(51);
-        statman.gauge('metric-name-2').value().should.equal(4);
-    });
+    it('registry returns single item')
 
     it('reset', function () {
         statman.gauge('a').value().should.be.equal(0);
@@ -32,13 +22,34 @@ describe.only('registry', function () {
         statman.gauge('a').value().should.be.equal(0);
     });
 
-    it('registering metric with same name overwrites the first')
+    describe.only('gauge', function () {
+        it('get new instance of a gauge', function () {
+            var gauge = statman.gauge('metric-name');
+            gauge.name().should.equal('metric-name');
+        });
 
-    it('registry returns full list')
+        it('retrieve gauge from registry', function () {
+            statman.gauge('metric-name').set(5);
+            statman.gauge('metric-name').value().should.equal(5);
+        });
 
-    it('registry returns single item')
+        it('two gauges from registry', function () {
+            statman.gauge('metric-name-1').set(50);
+            statman.gauge('metric-name-2').set(5);
+            statman.gauge('metric-name-1').increment();
+            statman.gauge('metric-name-2').decrement();
 
-    it('cannot register gauge without name')
+            statman.gauge('metric-name-1').value().should.equal(51);
+            statman.gauge('metric-name-2').value().should.equal(4);
+        });
+
+        it('registering metric with same name overwrites the first')
+
+        it('cannot register gauge without name')
+    });
+
+
+
 
 
 
