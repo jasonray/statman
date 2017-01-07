@@ -1,17 +1,15 @@
 # statman [![Build Status](https://travis-ci.org/jasonray/statman.svg?branch=master)](https://travis-ci.org/jasonray/statman) [![on npm](http://img.shields.io/npm/v/statman.svg?style=flat)](https://www.npmjs.org/package/statman)
-
 `statman` is a set of modules to assist with collection of metrics
 
 # Supported metrics
-
-[gauge](https://github.com/jasonray/statman-gauge): represents a point in time measurement
-[meter](https://github.com/jasonray/statman-meter): measures flow, including count and average time
-[stopwatch](https://github.com/jasonray/statman-stopwatch): used to record timings
+* [gauge](https://github.com/jasonray/statman-gauge): represents a point in time measurement
+* [meter](https://github.com/jasonray/statman-meter): measures flow, including count and average time
+* [stopwatch](https://github.com/jasonray/statman-stopwatch): used to record timings
 
 # Install it!
 `statman` is decomposed into several smaller modules.  To utilize the metric modules, you have two choices
-1) access directly: this is recommended if there is one single metric package.  Like if you just want the stopwatch
-2) access via statman: this provides some capabilities such as a registry to easily access many metrics
+* access directly: this is recommended if there is one single metric package.  Like if you just want the stopwatch
+* access via `statman`: this provides some capabilities such as a registry to easily access many metrics
 
 ## Option 1: access directly
 Install using npm:
@@ -56,7 +54,7 @@ statman.registry('my metric name') //return metric
 ```
 
 ## Gauge
-For the capabilities of `gauge` set: https://github.com/jasonray/statman-gauge
+For the capabilities of `gauge` see: https://github.com/jasonray/statman-gauge
 
 The following two approaches are equivalent
 ### Explicit creation of gauge
@@ -77,6 +75,9 @@ statman.gauge('metric-name').value()   //return '5'
 
 ## Stopwatch
 [stopwatch](https://github.com/jasonray/statman-stopwatch)
+
+# Extend it!
+TODO: how to build a new metric
 
 # Build it!
 - Make sure that you have `node` and `npm` installed
