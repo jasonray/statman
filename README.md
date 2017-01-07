@@ -1,151 +1,95 @@
 # statman [![Build Status](https://travis-ci.org/jasonray/statman.svg?branch=master)](https://travis-ci.org/jasonray/statman) [![on npm](http://img.shields.io/npm/v/statman.svg?style=flat)](https://www.npmjs.org/package/statman)
-
-Package to assist with collection of metrics
+`statman` is a set of modules to assist with collection of metrics
 
 # Supported metrics
+* [gauge](https://github.com/jasonray/statman-gauge): represents a point in time measurement
+* [meter](https://github.com/jasonray/statman-meter): measures flow, including count and average time
+* [stopwatch](https://github.com/jasonray/statman-stopwatch): used to record timings
 
-Gauge.js
-Meter.js
-Stopwatch.js - used for recording times
+# Install it!
+`statman` is decomposed into several smaller modules.  To utilize the metric modules, you have two choices
+* access directly: this is recommended if there is one single metric package.  Like if you just want the stopwatch
+* access via `statman`: this provides some capabilities such as a registry to easily access many metrics
 
-# Use it!
+## Option 1: access directly
+Install using npm:
+```
+npm install statman-stopwatch
+```
+
+Reference in your app:
+```
+var Gauge = require('statman-stopwatch');
+var gauge = Gauge('gauge-name');
+```
+
+## Option 2: access from `statman`
 Install using npm:
 ```
 npm install statman
 ```
 
-To use:
+Reference in your app:
 ```
-var metrics = require('statman');
+var statman = require('statman');
+var gauge = new statman.Gauge('gauge-name');
 ```
 
-## Stopwatch
-Stopwatch is useful for determining the amount of time it takes to perform an activity.
+# Use it!
+## Registry
+`statman` provides a registry that allow for you to track your metrics.
 
-### Basic usage
-Create a new stopwatch, `start()` it, and later `read()` it
+You can manually add metrics to the registry.  For the built in metrics, you can also auto-register those while creating
 ```
-    var Stopwatch = require('statman').Stopwatch;
-    var stopwatch = new Stopwatch();
-    stopwatch.start();
+// register a metric with a key
+var metic = { ..some object.. }
+statman.register('my metric name', metric)
 
-    // do some activity
+// register a metric with implicit key = name
+var metric2 = { name: 'my second metric' ..some object.. }
+statman.register(metric2);
 
-    var delta = stopwatch.read();
- ```
-
-### Autostart
-`start()` is too hard.  Create a new stopwatch with autostart=true, and later `read()` it
+// access metric from registry
+statman.registry('my metric name') //return metric
 ```
-    var Stopwatch = require('statman').Stopwatch;
-    var stopwatch = new Stopwatch(true);
-
-    // do some activity
-
-    var delta = stopwatch.read();
- ```
-
-### Stop
-Create a new stopwatch, `stop()` it, and later `read()` it
-```
-    var Stopwatch = require('statman').Stopwatch;
-    var stopwatch = new Stopwatch(true);
-
-    // do some activity
-
-    stopwatch.stop();
-
-    // do some more activity
-
-    //returns time associated with when stop() occurred
-    var delta = stopwatch.read();
- ```
 
 ## Gauge
-Based upon [codehale metric package](http://metrics.codahale.com/getting-started/#gauges), a gauge is an instanteous measurement.
+For the capabilities of `gauge` see: https://github.com/jasonray/statman-gauge
 
-Suppose that we want to create a gauage that measures that size of a queue.  The below indicates how to register this.
-
-### Register and using a gauge
-#### Method 1
+The following two approaches are equivalent
+### Explicit creation of gauge
 ```
-var gauge = new Gauge('queueSize');
-metrics.gauges.register(gauge);
-
-function enqueue(message) {
-	data.push(message);
-	metrics.gauges('queueSize').increment();
-}
-
-function dequeue() {
-	data.pop(message);
-	metrics.gauges('queueSize').decrement();
-}
-```
-
-#### Method 2
-```
-var gauge = new Gauge('queueSize');
-metrics.gauges.register(gauge);
-
-function enqueue(message) {
-	data.push(message);
-	gauge.increment();
-}
-
-function dequeue() {
-	data.pop(message);
-	gauge.decrement();
-}
-```
-
-#### Method 3
-```
-var gauge = new Gauge('queueSize', function() {
-	return data.size();
-});
-metrics.gauges.register(gauge);
-
-function enqueue(message) {
-	data.push(message);
-}
-
-function dequeue() {
-	data.pop(message);
-}
-```
-
-### Increment
-```
-var gauge = new metrics.gauge('metric-name');
-gauge.increment();  //increment by 1
-gauge.increment(10); //increment by 10
-```
-
-### Decrement
-```
-var gauge = new metrics.gauge('metric-name');
-gauge.decrement();  //decrement by 1
-gauge.decrement(10); //decrement by 10
-```
-
-### Set
-```
-var gauge = new metrics.gauge('metric-name');
+var gauge = statman.gauge('metric-name');
+statman.regiser(gauge);
 gauge.set(5);
 ```
 
-### Value
-To get gauge value:
+### Create and register a gauge
 ```
-gauge.value();
+statman.gauge('metric-name').set(5);   //if gauge by name 'metric-name' does not exist, create one, and set to '5'
+statman.gauge('metric-name').value()   //return '5'
 ```
+
+## Meter
+[meter](https://github.com/jasonray/statman-meter)
+
+## Stopwatch
+[stopwatch](https://github.com/jasonray/statman-stopwatch)
+
+# Extend it!
+TODO: how to build a new metric
 
 # Build it!
-make sure that you have `node` and `npm` installed
+- Make sure that you have `node` and `npm` installed
+- Clone source code to you local machine
+- Setup dependencies: `npm install`
+- run tests: `npm test`
 
-clone source code to you local machine
-
-setup dependencies: `npm install`
-
-run tests: `npm test`
+# Roadmap
+* Add meter
+* Move stopwatch back to its own repo.  Sigh.
+* Create reporters to output metrics
+* Provide guidance how to hook with HTTP/TCP/async calls
+* Provide hook to register with express
+* Integrate with visualizations
+* Provide web interface to access metrics
