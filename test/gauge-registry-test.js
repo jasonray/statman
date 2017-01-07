@@ -8,24 +8,16 @@ describe.only('registry', function () {
     });
 
     it('registry returns full list', function () {
-        var metricA = {};
-        var metricB = {};
+        var metricA = {name: 'metric-a'};
+        var metricB = {name: 'metric-b'};
         statman.register(metricA);
         statman.register(metricB);
         statman.registry().length.should.be.equal(2);
     });
 
     it('registry returns single item', function () {
-        var metricA = {
-            name: function () {
-                return 'metric-a'
-            }
-        };
-        var metricB = {
-            name: function () {
-                return 'metric-b'
-            }
-        };
+        var metricA = {name: 'metric-a'};
+        var metricB = {name: 'metric-b'};
         statman.register(metricA);
         statman.register(metricB);
         statman.registry('metric-a').should.be.equal(metricA);
