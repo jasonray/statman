@@ -3,7 +3,6 @@
 
 var statman = require('../lib/statman');
 var should = require('should');
-var StopWatch = require('../lib/metric/Stopwatch');
 
 describe('meter (smoke test)', function () {
     this.timeout(5000);
