@@ -53,14 +53,14 @@ describe.only('stopwatch (smoke test)', function () {
         statman.registry('metric-name').stop();
     });
 
-    it.skip('start and read (10ms)', function (done) {
+    it('start and read (10ms)', function (done) {
         var testtime = 10;
 
         var stopwatch = new statman.Stopwatch();
         stopwatch.start();
         setTimeout(function () {
             var delta = stopwatch.read();
-            verifyDelta(testtime, delta, defaultPrecision);
+            verifyDelta(testtime, delta, 10);
             done();
         }, testtime);
     });
