@@ -65,9 +65,39 @@ describe.only('stopwatch (smoke test)', function () {
         }, testtime);
     });
 
-    it.skip('toString produces something ', function () {
-        var stopwatch = statman.stopwatch('metric-name');
-        gauge.toString().should.containEql("stopped");
+    it('autostart and read (10ms)', function (done) {
+        var testtime = 10;
+
+        var stopwatch = new statman.Stopwatch(true);
+        setTimeout(function () {
+            var delta = stopwatch.read();
+            verifyDelta(testtime, delta, 10);
+            done();
+        }, testtime);
+    });
+
+    describe('toString()', function () {
+        it('idle', function () {
+            var stopwatch = statman.stopwatch('sw');
+            //[sw => state:init; value:NaN]
+            stopwatch.toString().should.containEql('state:init');
+            stopwatch.toString().should.containEql('value:');
+        });
+        it('started', function () {
+            var stopwatch = statman.stopwatch('sw');
+            stopwatch.start();
+            //[sw => state:running; value:0.01]
+            stopwatch.toString().should.containEql('state:running');
+            stopwatch.toString().should.containEql('value:0');
+        });
+        it('stopped', function () {
+            var stopwatch = statman.stopwatch('sw');
+            stopwatch.start();
+            stopwatch.stop();
+            //[sw => state:stopped; value:0.01]
+            stopwatch.toString().should.containEql('state:stopped');
+            stopwatch.toString().should.containEql('value:0');
+        });
     });
 });
 
