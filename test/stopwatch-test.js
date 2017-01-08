@@ -8,7 +8,7 @@ var statman = require('../lib/statman');
 var TestHelper = require('./testhelper');
 var _ = require('underscore');
 
-describe.only('stopwatch (smoke test)', function () {
+describe('stopwatch (smoke test)', function () {
     it('explicit constructor', function () {
         var stopwatch = new statman.Stopwatch('metric-name');
         should.exists(stopwatch);
