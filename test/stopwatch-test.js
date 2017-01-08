@@ -7,15 +7,41 @@ var should = require('should');
 var statman = require('../lib/statman');
 var TestHelper = require('./testhelper');
 
-describe('stopwatch (smoke test)', function () {
-    it('explicit constructor', function () {
+describe.only('stopwatch (smoke test)', function () {
+    it.skip('explicit constructor', function () {
         var stopwatch = new statman.Stopwatch('metric-name');
         should.exists(stopwatch);
+    });
+
+    it('explicit constructor (w/no name or autostart)', function () {
+        var stopwatch = new statman.Stopwatch();
+        should.exist(stopwatch.name());
+    });
+
+    it.skip('explicit constructor (w/autostart)', function () {
+        var stopwatch = new statman.Stopwatch(true);
+        should.exist(stopwatch.name());
+        stopwatch.name().should.not.equal(true);
+    });
+
+    it.skip('explicit constructor (w/name and autostart)', function () {
+        var stopwatch = new statman.Stopwatch('metric-name', true);
+        should.exist(stopwatch.name());
+        stopwatch.name().should.equal('metric-name');
     });
 
     it.skip('implicit constructor', function () {
         var stopwatch = statman.stopwatch('metric-name');
         should.exists(stopwatch);
+    });
+
+    it.skip('implicit constructor w/no name', function () {
+        var stopwatch = statman.stopwatch();
+
+        console.log('stopwatch:',stopwatch);
+
+        should.exists(stopwatch);
+        should.exist(stopwatch.name());
     });
 
     it.skip('name', function () {
