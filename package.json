@@ -19,7 +19,7 @@
     "performance-now": "^1.0.1",
     "statman-gauge": "^1.0.5",
     "statman-meter": "1.0.2",
-    "statman-stopwatch": "^2.0.2",
+    "statman-stopwatch": "^2.1.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
