@@ -35,7 +35,7 @@ describe.only('stopwatch (smoke test)', function () {
         should.exists(stopwatch);
     });
 
-    it.skip('implicit constructor w/no name', function () {
+    it.only('implicit constructor w/no name', function () {
         var stopwatch = statman.stopwatch();
 
         console.log('stopwatch:',stopwatch);
