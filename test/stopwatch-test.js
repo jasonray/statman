@@ -18,7 +18,7 @@ describe.only('stopwatch (smoke test)', function () {
         should.exist(stopwatch.name());
     });
 
-    it.skip('explicit constructor (w/autostart)', function () {
+    it('explicit constructor (w/autostart)', function () {
         var stopwatch = new statman.Stopwatch(true);
         should.exist(stopwatch.name());
         stopwatch.name().should.not.equal(true);
