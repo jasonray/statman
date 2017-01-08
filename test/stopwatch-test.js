@@ -42,7 +42,7 @@ describe.only('stopwatch (smoke test)', function () {
         should.exist(stopwatch.name());
     });
 
-    it.skip('name', function () {
+    it('name', function () {
         var stopwatch = new statman.Stopwatch('metric-name');
         assert.equal('metric-name', stopwatch.name());
     });
