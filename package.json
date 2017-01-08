@@ -1,6 +1,6 @@
 {
   "name": "statman",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Package to assist with collection of metrics, including stopwatch functionality",
   "main": "./lib/statman.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "performance-now": "^1.0.1",
     "statman-gauge": "^1.0.5",
     "statman-meter": "1.0.2",
+    "statman-stopwatch": "^2.2.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
