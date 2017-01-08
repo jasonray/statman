@@ -31,7 +31,7 @@ describe.only('stopwatch (smoke test)', function () {
         stopwatch.name().should.equal('metric-name');
     });
 
-    it.skip('implicit constructor', function () {
+    it('implicit constructor', function () {
         var stopwatch = statman.stopwatch('metric-name');
         should.exists(stopwatch);
     });
