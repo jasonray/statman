@@ -6,6 +6,7 @@ var assert = require('assert');
 var should = require('should');
 var statman = require('../lib/statman');
 var TestHelper = require('./testhelper');
+var _ = require('underscore');
 
 describe.only('stopwatch (smoke test)', function () {
     it('explicit constructor', function () {
@@ -30,16 +31,13 @@ describe.only('stopwatch (smoke test)', function () {
         stopwatch.name().should.equal('metric-name');
     });
 
-    it('implicit constructor', function () {
+    it.only('implicit constructor', function () {
         var stopwatch = statman.stopwatch('metric-name');
         should.exists(stopwatch);
     });
 
     it.only('implicit constructor w/no name', function () {
         var stopwatch = statman.stopwatch();
-
-        console.log('stopwatch:',stopwatch);
-
         should.exists(stopwatch);
         should.exist(stopwatch.name());
     });
