@@ -47,7 +47,7 @@ describe.only('stopwatch (smoke test)', function () {
         assert.equal('metric-name', stopwatch.name());
     });
 
-    it.skip('access via registry', function () {
+    it('access via registry', function () {
         var stopwatch = statman.stopwatch('metric-name');
         statman.registry('metric-name').start();
         statman.registry('metric-name').stop();
