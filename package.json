@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "statman-gauge": "^1.0.5",
-    "statman-stopwatch": "^2.2.0",
     "statman-meter": "^1.0.2",
+    "statman-stopwatch": "^2.2.1",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
