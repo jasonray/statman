@@ -8,7 +8,7 @@ var statman = require('../lib/statman');
 var TestHelper = require('./testhelper');
 var _ = require('underscore');
 
-describe.only('stopwatch (smoke test)', function () {
+describe('stopwatch (smoke test)', function () {
     it('explicit constructor', function () {
         var stopwatch = new statman.Stopwatch('metric-name');
         should.exists(stopwatch);
@@ -88,7 +88,7 @@ describe.only('stopwatch (smoke test)', function () {
             stopwatch.start();
             //[sw => state:running; value:0.01]
             stopwatch.toString().should.containEql('state:running');
-            stopwatch.toString().should.containEql('value:0');
+            stopwatch.toString().should.containEql('value:');
         });
         it('stopped', function () {
             var stopwatch = statman.stopwatch('sw');
@@ -96,7 +96,7 @@ describe.only('stopwatch (smoke test)', function () {
             stopwatch.stop();
             //[sw => state:stopped; value:0.01]
             stopwatch.toString().should.containEql('state:stopped');
-            stopwatch.toString().should.containEql('value:0');
+            stopwatch.toString().should.containEql('value:');
         });
     });
 });
