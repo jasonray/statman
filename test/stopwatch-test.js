@@ -9,6 +9,9 @@ var TestHelper = require('./testhelper');
 var _ = require('underscore');
 
 describe('stopwatch (smoke test)', function () {
+    beforeEach(function() {
+       statman.reset();
+    });
     it('explicit constructor', function () {
         var stopwatch = new statman.Stopwatch('metric-name');
         should.exists(stopwatch);
