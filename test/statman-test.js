@@ -58,15 +58,15 @@ describe('registry', function () {
     });
 
     it('registry can have key discovered from name()', function () {
-        var metric = {
+        const metric = {
             name: function () {
                 return 'x'
             }
         };
 
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
