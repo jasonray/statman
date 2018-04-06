@@ -3,7 +3,7 @@
 
 const mocha = require('mocha');
 const assert = require('assert');
-var should = require('should');
+const should = require('should');
 var statman = require('../lib/statman');
 
 describe('gauge (smoke test)', function () {
