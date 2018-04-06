@@ -16,6 +16,7 @@
     "url": "https://github.com/jasonray/statman/issues"
   },
   "dependencies": {
+    "lodash.isempty": "^4.4.0",
     "statman-gauge": "^1.0.5",
     "statman-meter": "^1.0.2",
     "statman-stopwatch": "^2.7.0",
