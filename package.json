@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "lodash.isempty": "^4.4.0",
+    "lodash.isfunction": "^3.0.9",
     "statman-gauge": "^1.0.5",
     "statman-meter": "^1.0.2",
     "statman-stopwatch": "^2.7.0",
