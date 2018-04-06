@@ -76,15 +76,15 @@ describe('registry', function () {
     });
 
     it('registry can have key discovered from getName()', function () {
-        var metric = {
+        const metric = {
             getName: function () {
                 return 'x'
             }
         };
 
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
@@ -94,12 +94,12 @@ describe('registry', function () {
     });
 
     it('registering metric with same name overwrites the first', function () {
-        var metricA = {
+        const metricA = {
             name: function () {
                 return 'metric-a'
             }, value: 1
         };
-        var metricB = {
+        const metricB = {
             name: function () {
                 return 'metric-a'
             }, value: 2
