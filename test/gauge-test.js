@@ -4,7 +4,7 @@
 const mocha = require('mocha');
 const assert = require('assert');
 const should = require('should');
-var statman = require('../lib/statman');
+const statman = require('../lib/statman');
 
 describe('gauge (smoke test)', function () {
     it('gauagename', function () {
