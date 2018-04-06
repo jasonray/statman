@@ -13,8 +13,7 @@ describe('meter (smoke test)', function () {
     });
 
     it('record once and get count should return 1', function () {
-        var meter;
-        meter = new statman.Meter();
+        const meter = new statman.Meter();
         meter.record();
         meter.getCount().should.be.equal(1);
     });
