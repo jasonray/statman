@@ -1,4 +1,4 @@
-var statman = require('../lib/statman');
+const statman = require('../lib/statman');
 var assert = require('assert');
 var should = require('should');
 
