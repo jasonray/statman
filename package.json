@@ -21,8 +21,7 @@
     "lodash.isnull": "^3.0.0",
     "statman-gauge": "^1.0.5",
     "statman-meter": "^1.0.2",
-    "statman-stopwatch": "^2.7.0",
-    "underscore": "^1.8.3"
+    "statman-stopwatch": "^2.7.0"
   },
   "devDependencies": {
     "should": "^11.1.2",
