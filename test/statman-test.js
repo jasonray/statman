@@ -1,6 +1,6 @@
 const statman = require('../lib/statman');
 const assert = require('assert');
-var should = require('should');
+const should = require('should');
 
 describe('registry', function () {
     beforeEach(function () {
