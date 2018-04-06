@@ -160,7 +160,7 @@ describe('registry', function () {
         });
 
         it('explicit register meter', function () {
-            var meter = new statman.Meter('metric-name');
+            const meter = new statman.Meter('metric-name');
             should.not.exist(statman.registry('metric-name'));
             statman.register(meter);
             should.exist(statman.registry('metric-name'));
