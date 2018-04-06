@@ -27,9 +27,9 @@ describe('meter (smoke test)', function () {
     });
 
     it('meter.start() provides an event, which can be used to auto record meter', function (done) {
-        var meter = new statman.Meter();
+        const meter = new statman.Meter();
 
-        var meterEvent = meter.startEvent();
+        const meterEvent = meter.startEvent();
         setTimeout(function () {
             meterEvent.stop();
 
