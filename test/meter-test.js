@@ -19,8 +19,7 @@ describe('meter (smoke test)', function () {
     });
 
     it('record and read', function () {
-        var meter;
-        meter = new statman.Meter();
+        const meter = new statman.Meter();
         meter.record(1000);
         meter.record(2000);
         meter.getAverage().should.equal(1500);
