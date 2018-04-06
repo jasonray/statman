@@ -8,7 +8,7 @@ const statman = require('../lib/statman');
 
 describe('gauge (smoke test)', function () {
     it('gauagename', function () {
-        var gauge = new statman.Gauge('metric-name');
+        const gauge = new statman.Gauge('metric-name');
         assert.equal('metric-name', gauge.name());
     });
 
