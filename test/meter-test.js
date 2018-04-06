@@ -8,8 +8,7 @@ describe('meter (smoke test)', function () {
     this.timeout(5000);
 
     it('init should return an instance of meter', function () {
-        var meter;
-        meter = new statman.Meter();
+        const meter = new statman.Meter();
         should.exist(meter);
     });
 
