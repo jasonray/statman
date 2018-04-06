@@ -6,6 +6,7 @@ const assert = require('assert');
 const should = require('should');
 const statman = require('../lib/statman');
 const TestHelper = require('./testhelper');
+const verifyDelta = TestHelper.assertCloseEnough;
 
 describe('stopwatch (smoke test)', function () {
     beforeEach(function() {
@@ -105,9 +106,9 @@ describe('stopwatch (smoke test)', function () {
 
 //TODO:
 //replace with: statman.TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
-function verifyDelta(expected, actual, acceptedVariance) {
-    var lowerThreshold = expected - acceptedVariance;
-    var upperThreshold = expected + acceptedVariance;
-    var message = "Expected " + expected + " ± " + acceptedVariance + ", was " + actual + ".";
-    assert.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
-}
+// function verifyDelta(expected, actual, acceptedVariance) {
+//     var lowerThreshold = expected - acceptedVariance;
+//     var upperThreshold = expected + acceptedVariance;
+//     var message = "Expected " + expected + " ± " + acceptedVariance + ", was " + actual + ".";
+//     assert.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
+// }
