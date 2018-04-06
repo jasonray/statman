@@ -41,8 +41,7 @@ describe('meter (smoke test)', function () {
     });
 
     it('toString()', function () {
-        var meter;
-        meter = new statman.Meter();
+        const meter = new statman.Meter();
         meter.record(2.2);
         meter.record(4.4);
         meter.toString().should.equal('[count:2; average:3.30]');
