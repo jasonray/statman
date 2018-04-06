@@ -8,9 +8,9 @@ describe('registry', function () {
     });
 
     it('registry() => returns full list of metrics', function () {
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
@@ -18,9 +18,9 @@ describe('registry', function () {
     });
 
     it('registry(name) => returns single item', function () {
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
@@ -30,11 +30,11 @@ describe('registry', function () {
     });
 
     it('registry can have key passed explicitly', function () {
-        var metric = {value: 'abc'};
+        const metric = {value: 'abc'};
 
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
@@ -44,11 +44,11 @@ describe('registry', function () {
     });
 
     it('registry can have key discovered from name', function () {
-        var metric = {name: 'x'};
+        const metric = {name: 'x'};
 
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
