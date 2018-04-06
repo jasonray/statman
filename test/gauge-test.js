@@ -1,7 +1,7 @@
 /*jslint node: true */
 "use strict";
 
-var mocha = require('mocha');
+const mocha = require('mocha');
 var assert = require('assert');
 var should = require('should');
 var statman = require('../lib/statman');
