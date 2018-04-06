@@ -33,7 +33,7 @@ describe('gauge (smoke test)', function () {
     });
 
     it('decrementByValue', function () {
-        var gauge = new statman.Gauge('metric-name');
+        const gauge = new statman.Gauge('metric-name');
         gauge.set(10);
         gauge.decrement(2);
         assert.equal(8, gauge.value());
