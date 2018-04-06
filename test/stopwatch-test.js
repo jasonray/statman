@@ -2,7 +2,7 @@
 "use strict";
 
 const mocha = require('mocha');
-var assert = require('assert');
+const assert = require('assert');
 var should = require('should');
 var statman = require('../lib/statman');
 var TestHelper = require('./testhelper');
