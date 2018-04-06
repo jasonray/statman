@@ -6,7 +6,6 @@ var assert = require('assert');
 var should = require('should');
 var statman = require('../lib/statman');
 var TestHelper = require('./testhelper');
-var _ = require('underscore');
 
 describe('stopwatch (smoke test)', function () {
     beforeEach(function() {
