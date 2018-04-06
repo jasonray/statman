@@ -46,7 +46,7 @@ describe('gauge (smoke test)', function () {
     });
 
     it('toString produces something with the value', function () {
-        var gauge = new statman.Gauge('metric-name');
+        const gauge = new statman.Gauge('metric-name');
         gauge.set(5);
         gauge.toString().should.containEql(5);
     });
