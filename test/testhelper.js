@@ -1,6 +1,5 @@
-var assert = require('assert');
+const assert = require('assert');
 const isNull = require('lodash.isnull');
-
 
 function assertCloseEnough(actual, expected, acceptedVariance) {
     if (isNull(acceptedVariance)) acceptedVariance = 10;
