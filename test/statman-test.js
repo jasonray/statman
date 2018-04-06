@@ -126,12 +126,12 @@ describe('registry', function () {
 
     describe('gauge in registry', function () {
         it('get new instance of a gauge', function () {
-            var gauge = statman.gauge('metric-name');
+            const gauge = statman.gauge('metric-name');
             gauge.name().should.equal('metric-name');
         });
 
         it('explicit register gauge', function () {
-            var gauge = new statman.Gauge('metric-name');
+            const gauge = new statman.Gauge('metric-name');
             should.not.exist(statman.registry('metric-name'));
             statman.register(gauge);
             should.exist(statman.registry('metric-name'));
