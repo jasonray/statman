@@ -1,8 +1,8 @@
 /*jslint node: true */
 "use strict";
 
-var statman = require('../lib/statman');
-var should = require('should');
+const statman = require('../lib/statman');
+const should = require('should');
 
 describe('meter (smoke test)', function () {
     this.timeout(5000);
