@@ -1,5 +1,5 @@
 const statman = require('../lib/statman');
-var assert = require('assert');
+const assert = require('assert');
 var should = require('should');
 
 describe('registry', function () {
