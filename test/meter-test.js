@@ -1,28 +1,25 @@
 /*jslint node: true */
 "use strict";
 
-var statman = require('../lib/statman');
-var should = require('should');
+const statman = require('../lib/statman');
+const should = require('should');
 
 describe('meter (smoke test)', function () {
     this.timeout(5000);
 
     it('init should return an instance of meter', function () {
-        var meter;
-        meter = new statman.Meter();
+        const meter = new statman.Meter();
         should.exist(meter);
     });
 
     it('record once and get count should return 1', function () {
-        var meter;
-        meter = new statman.Meter();
+        const meter = new statman.Meter();
         meter.record();
         meter.getCount().should.be.equal(1);
     });
 
     it('record and read', function () {
-        var meter;
-        meter = new statman.Meter();
+        const meter = new statman.Meter();
         meter.record(1000);
         meter.record(2000);
         meter.getAverage().should.equal(1500);
@@ -30,9 +27,9 @@ describe('meter (smoke test)', function () {
     });
 
     it('meter.start() provides an event, which can be used to auto record meter', function (done) {
-        var meter = new statman.Meter();
+        const meter = new statman.Meter();
 
-        var meterEvent = meter.startEvent();
+        const meterEvent = meter.startEvent();
         setTimeout(function () {
             meterEvent.stop();
 
@@ -44,8 +41,7 @@ describe('meter (smoke test)', function () {
     });
 
     it('toString()', function () {
-        var meter;
-        meter = new statman.Meter();
+        const meter = new statman.Meter();
         meter.record(2.2);
         meter.record(4.4);
         meter.toString().should.equal('[count:2; average:3.30]');

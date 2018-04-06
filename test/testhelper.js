@@ -1,12 +1,11 @@
-var _ = require('underscore');
-var assert = require('assert');
-
+const assert = require('assert');
+const isNull = require('lodash.isnull');
 
 function assertCloseEnough(actual, expected, acceptedVariance) {
-    if (_.isNull(acceptedVariance)) acceptedVariance = 10;
-    var lowerThreshold = expected - acceptedVariance;
-    var upperThreshold = expected + acceptedVariance;
-    var message = "Expected " + expected + " ± " + acceptedVariance + ", was " + actual + ".";
+    if (isNull(acceptedVariance)) acceptedVariance = 10;
+    const lowerThreshold = expected - acceptedVariance;
+    const upperThreshold = expected + acceptedVariance;
+    const message = "Expected " + expected + " ± " + acceptedVariance + ", was " + actual + ".";
     assert.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
 }
 

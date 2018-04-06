@@ -1,6 +1,6 @@
-var statman = require('../lib/statman');
-var assert = require('assert');
-var should = require('should');
+const statman = require('../lib/statman');
+const assert = require('assert');
+const should = require('should');
 
 describe('registry', function () {
     beforeEach(function () {
@@ -8,9 +8,9 @@ describe('registry', function () {
     });
 
     it('registry() => returns full list of metrics', function () {
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
@@ -18,9 +18,9 @@ describe('registry', function () {
     });
 
     it('registry(name) => returns single item', function () {
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
@@ -30,11 +30,11 @@ describe('registry', function () {
     });
 
     it('registry can have key passed explicitly', function () {
-        var metric = {value: 'abc'};
+        const metric = {value: 'abc'};
 
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
@@ -44,11 +44,11 @@ describe('registry', function () {
     });
 
     it('registry can have key discovered from name', function () {
-        var metric = {name: 'x'};
+        const metric = {name: 'x'};
 
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
@@ -58,15 +58,15 @@ describe('registry', function () {
     });
 
     it('registry can have key discovered from name()', function () {
-        var metric = {
+        const metric = {
             name: function () {
                 return 'x'
             }
         };
 
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
@@ -76,15 +76,15 @@ describe('registry', function () {
     });
 
     it('registry can have key discovered from getName()', function () {
-        var metric = {
+        const metric = {
             getName: function () {
                 return 'x'
             }
         };
 
-        var metricA = {name: 'metricA'};
-        var metricB = {name: 'metricB'};
-        var metricC = {name: 'metric-C'};
+        const metricA = {name: 'metricA'};
+        const metricB = {name: 'metricB'};
+        const metricC = {name: 'metric-C'};
         statman.register(metricA);
         statman.register(metricB);
         statman.register(metricC);
@@ -94,12 +94,12 @@ describe('registry', function () {
     });
 
     it('registering metric with same name overwrites the first', function () {
-        var metricA = {
+        const metricA = {
             name: function () {
                 return 'metric-a'
             }, value: 1
         };
-        var metricB = {
+        const metricB = {
             name: function () {
                 return 'metric-a'
             }, value: 2
@@ -126,12 +126,12 @@ describe('registry', function () {
 
     describe('gauge in registry', function () {
         it('get new instance of a gauge', function () {
-            var gauge = statman.gauge('metric-name');
+            const gauge = statman.gauge('metric-name');
             gauge.name().should.equal('metric-name');
         });
 
         it('explicit register gauge', function () {
-            var gauge = new statman.Gauge('metric-name');
+            const gauge = new statman.Gauge('metric-name');
             should.not.exist(statman.registry('metric-name'));
             statman.register(gauge);
             should.exist(statman.registry('metric-name'));
@@ -155,12 +155,12 @@ describe('registry', function () {
 
     describe('meter in registry', function () {
         it('get new instance of a meter', function () {
-            var meter = statman.meter('metric-name');
+            const meter = statman.meter('metric-name');
             meter.name().should.equal('metric-name');
         });
 
         it('explicit register meter', function () {
-            var meter = new statman.Meter('metric-name');
+            const meter = new statman.Meter('metric-name');
             should.not.exist(statman.registry('metric-name'));
             statman.register(meter);
             should.exist(statman.registry('metric-name'));
