@@ -40,7 +40,7 @@ describe('gauge (smoke test)', function () {
     });
 
     it('set', function () {
-        var gauge = new statman.Gauge('metric-name');
+        const gauge = new statman.Gauge('metric-name');
         gauge.set(5);
         assert.equal(5, gauge.value());
     });
