@@ -5,7 +5,7 @@ const mocha = require('mocha');
 const assert = require('assert');
 const should = require('should');
 const statman = require('../lib/statman');
-var TestHelper = require('./testhelper');
+const TestHelper = require('./testhelper');
 
 describe('stopwatch (smoke test)', function () {
     beforeEach(function() {
