@@ -20,7 +20,7 @@
     "lodash.isfunction": "^3.0.9",
     "lodash.isnull": "^3.0.0",
     "statman-gauge": "^1.0.5",
-    "statman-meter": "1.1.1",
+    "statman-meter": "1.1.2",
     "statman-stopwatch": "^2.7.0"
   },
   "devDependencies": {
