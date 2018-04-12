@@ -1,6 +1,9 @@
 # statman [![Build Status](https://travis-ci.org/jasonray/statman.svg?branch=master)](https://travis-ci.org/jasonray/statman) [![on npm](http://img.shields.io/npm/v/statman.svg?style=flat)](https://www.npmjs.org/package/statman)
 `statman` is a set of modules to assist with collection of metrics
 
+# Note
+Build is failing.  I have been trying to determine why it is passing locally and failing on ci-travis over the last few evenings.
+
 # Supported metrics
 * [gauge](https://github.com/jasonray/statman-gauge): represents a point in time measurement
 * [meter](https://github.com/jasonray/statman-meter): measures flow, including count and average time
