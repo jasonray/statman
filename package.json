@@ -1,6 +1,6 @@
 {
   "name": "statman",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Package to assist with collection of metrics, including stopwatch functionality",
   "main": "./lib/statman.js",
   "scripts": {
@@ -19,13 +19,13 @@
     "lodash.isempty": "^4.4.0",
     "lodash.isfunction": "^3.0.9",
     "lodash.isnull": "^3.0.0",
-    "statman-gauge": "^1.0.5",
+    "statman-gauge": "^1.1.0",
     "statman-meter": "1.2.1",
     "statman-stopwatch": "^2.7.0"
   },
   "devDependencies": {
-    "mocha": "^5.0.5",
-    "should": "^13.2.1"
+    "mocha": "^6.0.2",
+    "should": "^13.2.3"
   },
   "keywords": [
     "stopwatch",
