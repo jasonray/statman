@@ -1,4 +1,4 @@
-# statman [![Build Status](https://travis-ci.org/jasonray/statman.svg?branch=master)](https://travis-ci.org/jasonray/statman) [![on npm](http://img.shields.io/npm/v/statman.svg?style=flat)](https://www.npmjs.org/package/statman) [![Greenkeeper badge](https://badges.greenkeeper.io/jasonray/statman.svg)](https://greenkeeper.io/)
+# statman [![Build Status](https://travis-ci.org/jasonray/statman.svg?branch=master)](https://travis-ci.org/jasonray/statman) [![on npm](http://img.shields.io/npm/v/statman.svg?style=flat)](https://www.npmjs.org/package/statman) [![Greenkeeper badge](https://badges.greenkeeper.io/jasonray/statman.svg)](https://greenkeeper.io/) [![Dependency badge](https://david-dm.org/jasonray/statman.svg)](https://david-dm.org/jasonray/statman.svg)
 `statman` is a set of modules to assist with collection of metrics
 
 # Supported metrics
