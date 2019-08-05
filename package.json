@@ -21,7 +21,7 @@
     "lodash.isnull": "3.0.0",
     "statman-gauge": "1.1.0",
     "statman-meter": "1.2.1",
-    "statman-stopwatch": "2.8.2"
+    "statman-stopwatch": "2.9.0"
   },
   "devDependencies": {
     "mocha": "6.1.3",
