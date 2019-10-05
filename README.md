@@ -42,7 +42,7 @@ var gauge = new statman.Gauge('gauge-name');
 You can manually add metrics to the registry.  For the built in metrics, you can also auto-register those while creating
 ```
 // register a metric with a key
-var metic = { ..some object.. }
+var metric = { ..some object.. }
 statman.register('my metric name', metric)
 
 // register a metric with implicit key = name
