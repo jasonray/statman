@@ -24,7 +24,7 @@
     "statman-stopwatch": "^2.11.1"
   },
   "devDependencies": {
-    "mocha": "^6.2.1",
+    "mocha": "^7.0.1",
     "should": "13.2.3"
   },
   "keywords": [
