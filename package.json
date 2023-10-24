@@ -21,10 +21,10 @@
     "lodash.isnull": "3.0.0",
     "statman-gauge": "^1.1.1",
     "statman-meter": "1.2.1",
-    "statman-stopwatch": "^2.16.0"
+    "statman-stopwatch": "^2.16.2"
   },
   "devDependencies": {
-    "mocha": "^6.2.1",
+    "mocha": "^10.2.0",
     "should": "13.2.3"
   },
   "keywords": [
