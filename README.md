@@ -1,4 +1,10 @@
-# statman [![Build Status](https://travis-ci.org/jasonray/statman.svg?branch=master)](https://travis-ci.org/jasonray/statman) [![on npm](http://img.shields.io/npm/v/statman.svg?style=flat)](https://www.npmjs.org/package/statman) [![Greenkeeper badge](https://badges.greenkeeper.io/jasonray/statman.svg)](https://greenkeeper.io/) [![Dependency badge](https://david-dm.org/jasonray/statman.svg)](https://david-dm.org/jasonray/statman)
+# statman
+
+[![Node.js CI](https://github.com/jasonray/statman/actions/workflows/node.js.yml/badge.svg)](https://github.com/jasonray/statman/actions/workflows/node.js.yml)
+[![on npm](http://img.shields.io/npm/v/statman.svg?style=flat)](https://www.npmjs.org/package/statman) 
+[![Known Vulnerabilities](https://snyk.io/test/github/jasonray/statman-stopwatch/badge.svg)](https://snyk.io/test/github/jasonray/statman-stopwatch) 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/52972099846944a08961a6908df7b8cc)](https://app.codacy.com/gh/jasonray/statman/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
 `statman` is a set of modules to assist with collection of metrics
 
 # Supported metrics
